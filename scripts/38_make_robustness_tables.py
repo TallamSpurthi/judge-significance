@@ -155,7 +155,8 @@ def prediction_macros(path):
     """Bootstrap-test resolution predicted from 25-topic subsets against the one measured on all topics (step 24)."""
     with open(path) as f:
         head = f.readline()
-        rows = {(r["year"], int(r["n"])): r for r in csv.DictReader(f, delimiter="\t") if r["part"] == "extrapolation"}
+        data = list(csv.DictReader(f, delimiter="\t"))
+    rows = {(r["year"], int(r["n"])): r for r in data if r["part"] == "extrapolation"}
     subsets = int(re.search(r"K=(\d+)", head).group(1))
     vals = {}
     for n, name in ((54, "Full"), (100, "Hundred")):
@@ -167,6 +168,9 @@ def prediction_macros(path):
     vals["rbResNineteenMeas"] = f"{float(r['res_measured']):.2f}"
     vals["rbResNineteenNone"] = r["res_pred_none"]
     vals["rbResSubsets"] = str(subsets)
+    sys31 = next(r for r in data if r["part"] == "systems" and r["year"] == "dl20" and r["n"] == "100")
+    assert int(sys31["res_pred_none"]) == 0, sys31  # every random draw of 31 systems resolves a gap
+    vals["rbSysMin"], vals["rbSysMax"] = (f"{float(sys31[c]):.2f}" for c in ("res_pred_min", "res_pred_max"))
     return vals
 
 
