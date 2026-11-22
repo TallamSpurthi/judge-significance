@@ -1,6 +1,6 @@
 # New LLM judges on TREC DL 2023 (steps 27-30)
 
-Labels from eight LLM judges for every NIST-judged query-passage pair of the 82 TREC DL 2023 topics (22,327 pairs), with the paper's held-out power analysis.
+Labels from eight LLM judges for nearly every NIST-judged query-passage pair of the 82 TREC DL 2023 topics (22,327 pairs; `summary.tsv` has the count labelled by each judge, 22,292 at least), with the paper's held-out power analysis.
 
 **Please do not use these labels to train or tune models.** TREC DL 2023 is a public test collection, and labels in training data would inflate a model's agreement with the TREC labels on it.
 

@@ -34,7 +34,7 @@ Power (`scripts/10`; 200 replicates per cell): the paired permutation test needs
 
 ## Real judges, equal-τ tests and replication (Nov 9, 2026)
 
-All numbers in the paper are generated into `paper/manuscript/numbers.tex` by `scripts/13`; see `numbers.md` beside it for each value and its source file.
+The result numbers in the paper's text are generated into `paper/manuscript/numbers.tex` by `scripts/13` (see `numbers.md` beside it for each value and its source file) and, for some of the ACM AI Letters appendix, into `paper/venues/acm-ai-letters/robustness-numbers.tex` by `scripts/38`. Design constants such as sample sizes are typed in the text.
 
 | Check | Result |
 |---|---|

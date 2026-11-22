@@ -1,6 +1,6 @@
 """Step 40. Two LaTeX tables for the ACM AI Letters appendix, from released results (no new simulation):
 
-  tables/adjacent-tests.tex    the 32 adjacent pairs of the published LLMJudge order: gap in tau, two-sided
+  tables/adjacent-tests.tex    the 32 adjacent pairs of the LLMJudge judges in order of published tau: gap in tau, two-sided
                                permutation p and bootstrap z-test p, uncorrected (results/g-j2/18_equal_tau_tests.tsv;
                                every permutation p checked against results/g-j1/06_permutation_seed0.tsv)
   tables/test-comparison.tex   the permutation, studentized permutation and bootstrap z-tests on the same samples
@@ -70,7 +70,7 @@ def adjacent_table(M):
     return "\n".join([
         HEAD.format(src="results/g-j2/18_equal_tau_tests.tsv (permutation p checked against results/g-j1/06_permutation_seed0.tsv)"),
         r"\begin{table}[!h]",
-        r"\caption{The 32 adjacent pairs of the published LLMJudge order (ranks as in Table~\ref{tab:reproduction}; the"
+        r"\caption{The 32 adjacent pairs of the LLMJudge judges in order of published $\tau$ (ranks as in Table~\ref{tab:reproduction}; the"
         r" upper judge of each pair is the lower judge of the pair before it, and the top judge is " + rows[0]["a"] + r"):"
         r" gap in $\tau$, and two-sided $p$ of the permutation test (P) and the bootstrap $z$-test (B), uncorrected,"
         r" over the 25 topics with the 31 systems fixed ($P=R=10{,}000$). A gap of 0 gives $p=1$.}",
@@ -148,7 +148,7 @@ def comparison_table(M):
         r" together reject 5\% of samples. Section~\ref{sec:res-power}'s studentized rates and calibrated powers come from"
         r" this simulation; its other rejection rates come from the separate one behind Figure~\ref{fig:power}"
         f" ($P={p16}$, $R={r16}$), so they can differ from the values here."
-        r" \textsuperscript{a}Asymptotically, for smooth statistics; Kendall's $\tau$ is not one"
+        r" \textsuperscript{a}Asymptotically, for smooth statistics in two-sample tests; Kendall's $\tau$ is not one"
         r" (Section~\ref{sec:method}).}",
         r"\label{tab:tests}",
         r"\scriptsize",
