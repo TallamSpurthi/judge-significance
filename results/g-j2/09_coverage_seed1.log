@@ -1,0 +1,28 @@
+population: 31 runs, 82 topics; shared_eps=0.0 reps=1000 B=1000 sizes=[25] seed=1
+synthetic judges, tau on all 82 topics (target):
+  lenient-0.3  tau82=0.9570
+  random-0.4   tau82=0.9441
+  lenient-0.6  tau82=0.9355
+  random-0.2   tau82=0.9269
+  random-0.6   tau82=0.8495
+adjacent synthetic pairs, delta tau on all 82 topics (target):
+  lenient-0.3 - random-0.4: +0.0129
+  random-0.4 - lenient-0.6: +0.0086
+  lenient-0.6 - random-0.2: +0.0086
+  random-0.2 - random-0.6: +0.0774
+
+== n = 25 topics (1810 s) ==
+  target                         truth mean est | perce cov  low  high  width |   bca cov  low  high  width | stude cov  low  high  width
+  lenient-0.3                   0.9570   0.9506 | 0.982 0.000 0.018  0.112 | 0.753 0.191 0.056  0.071 | 0.773 0.200 0.027  0.102
+  random-0.4                    0.9441   0.8678 | 0.015 0.000 0.985  0.266 | 0.480 0.017 0.503  0.133 | 0.929 0.026 0.045  0.245
+  lenient-0.6                   0.9355   0.9354 | 0.994 0.000 0.006  0.130 | 0.717 0.247 0.036  0.082 | 0.719 0.263 0.018  0.117
+  random-0.2                    0.9269   0.9062 | 0.880 0.000 0.120  0.192 | 0.807 0.122 0.071  0.118 | 0.839 0.133 0.028  0.177
+  random-0.6                    0.8495   0.7314 | 0.164 0.000 0.836  0.411 | 0.644 0.027 0.329  0.240 | 0.914 0.027 0.059  0.439
+  lenient-0.3 - random-0.4      0.0129   0.0827 | 0.331 0.669 0.000  0.255 | 0.779 0.203 0.018  0.185 | 0.906 0.075 0.019  0.240
+  random-0.4 - lenient-0.6      0.0086  -0.0676 | 0.400 0.000 0.600  0.257 | 0.749 0.019 0.232  0.202 | 0.864 0.017 0.119  0.245
+  lenient-0.6 - random-0.2      0.0086   0.0292 | 1.000 0.000 0.000  0.189 | 0.846 0.109 0.045  0.183 | 0.867 0.080 0.053  0.179
+  random-0.2 - random-0.6       0.0774   0.1748 | 0.700 0.300 0.000  0.406 | 0.814 0.159 0.027  0.333 | 0.891 0.082 0.027  0.435
+
+  studentized: largest share of bootstrap replicates dropped for zero jackknife SE: 0.0000
+
+  cov = coverage of the 82-topic target; low = interval entirely above target; high = interval entirely below target. Monte Carlo SE of a 0.95 coverage at 1000 reps: 0.007

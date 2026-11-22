@@ -1,0 +1,10 @@
+uniqueness: raw labels, nDCG@10, trec_eval defaults, LLMJudge human qrels, tau-b
+  k=0: subsets=1 max exact=0/33, subsets reaching it=1
+  k=1: subsets=35 max exact=0/33, subsets reaching it=35
+  k=2: subsets=595 max exact=0/33, subsets reaching it=595
+  k=3: subsets=6545 max exact=1/33, subsets reaching it=289
+  k=4: subsets=52360 max exact=33/33, subsets reaching it=2
+     exclude: WatS-LLM-Rerank, uogtr_dph_bo1, uot-yahoo_LLMs-blender, uot-yahoo_rankgpt35
+     exclude: WatS-LLM-Rerank, uot-yahoo_LLMs-blender, uot-yahoo_rankgpt35, uot-yahoo_rankgpt4
+  k=5: subsets=324632 max exact=1/33, subsets reaching it=21614
+rho raw labels, 31 runs: exact 33 /33

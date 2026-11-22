@@ -1,0 +1,8 @@
+# bootstrap z-test; K=10 reps=100 boot=300 seed=0
+corr	mean_error	median_abs_error	median_power_31	median_power_all	n	part	res_measured	res_pred_max	res_pred_median	res_pred_min	res_pred_none	year
+0.896288	0.057156	0.056000			43	extrapolation		0.133046	0.133046	0.133046	8	dl19
+0.855253	0.080156	0.120000			100	extrapolation	0.133046	0.133046	0.133046	0.108108	5	dl19
+0.928923	0.044578	0.082000			54	extrapolation	0.081988	0.223261	0.189363	0.074975	0	dl20
+0.917065	0.041600	0.121000			100	extrapolation	0.064290	0.189363	0.079568	0.048090	0	dl20
+			0.220000	0.280000	54	systems	0.081988	0.236559	0.217204	0.172043	1	dl20
+			0.300000	0.440000	100	systems	0.064290	0.197849	0.117395	0.077419	0	dl20

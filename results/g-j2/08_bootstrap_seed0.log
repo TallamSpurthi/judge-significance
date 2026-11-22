@@ -1,0 +1,80 @@
+runs=31 topics=25 judges=33 B=10000 seed=0; tau check vs Table 3: 33/33 exact
+
+== Per-judge tau: 95% percentile and BCa intervals ==
+  judge                        tau   mean*     bias P(*<tau)  perc lo  perc hi   BCa lo   BCa hi     z0       a
+  prophet-setting2          0.9516  0.8716  -0.0800    0.993   0.7621   0.9386   0.9602   0.9774   2.45  +0.007  <-- tau above percentile CI
+  TREMA-4prompts            0.9483  0.8672  -0.0810    0.993   0.7629   0.9353   0.9574   0.9698   2.47  +0.001  <-- tau above percentile CI
+  NISTRetrieval-instruct0   0.9440  0.8686  -0.0754    0.993   0.7629   0.9310   0.9526   0.9655   2.45  +0.014  <-- tau above percentile CI
+  NISTRetrieval-instruct1   0.9440  0.8683  -0.0756    0.993   0.7629   0.9310   0.9526   0.9655   2.44  +0.014  <-- tau above percentile CI
+  NISTRetrieval-instruct2   0.9440  0.8685  -0.0755    0.993   0.7629   0.9310   0.9534   0.9655   2.44  +0.014  <-- tau above percentile CI
+  RMITIR-llama70B           0.9353  0.8737  -0.0617    0.963   0.7672   0.9397   0.9310   0.9741   1.78  +0.012
+  TREMA-sumdecompose        0.9300  0.8468  -0.0833    0.984   0.7241   0.9257   0.9343   0.9645   2.13  +0.004  <-- tau above percentile CI
+  Olz-multiprompt           0.9267  0.8632  -0.0636    0.963   0.7542   0.9310   0.9224   0.9698   1.79  -0.021
+  h2oloo-zeroshot1          0.9181  0.8674  -0.0507    0.925   0.7672   0.9310   0.9052   0.9698   1.44  -0.045
+  TREMA-all                 0.9138  0.8273  -0.0865    0.988   0.7112   0.9052   0.9224   0.9569   2.27  +0.001  <-- tau above percentile CI
+  TREMA-naiveBdecompose     0.9128  0.8282  -0.0846    0.978   0.7069   0.9095   0.9131   0.9483   2.02  +0.032  <-- tau above percentile CI
+  TREMA-questions           0.9095  0.8158  -0.0937    0.982   0.6681   0.9052   0.9138   0.9440   2.10  -0.012  <-- tau above percentile CI
+  Olz-halfbin               0.9085  0.8667  -0.0418    0.874   0.7750   0.9300   0.8836   0.9642   1.15  +0.011
+  h2oloo-fewself            0.9085  0.8766  -0.0319    0.786   0.7793   0.9353   0.8707   0.9659   0.79  +0.026
+  NISTRetrieval-reason0     0.9052  0.8626  -0.0426    0.849   0.7543   0.9267   0.8750   0.9602   1.03  +0.006
+  NISTRetrieval-reason2     0.9052  0.8626  -0.0426    0.849   0.7543   0.9267   0.8750   0.9602   1.03  +0.006
+  Olz-somebin               0.9042  0.8418  -0.0624    0.884   0.6853   0.9257   0.8741   0.9602   1.20  -0.004
+  prophet-setting1          0.9042  0.8551  -0.0491    0.907   0.7578   0.9214   0.8836   0.9686   1.32  +0.010
+  NISTRetrieval-reason1     0.9009  0.8629  -0.0379    0.811   0.7543   0.9310   0.8621   0.9576   0.88  +0.004
+  Olz-exp                   0.9009  0.8525  -0.0483    0.866   0.7313   0.9224   0.8707   0.9702   1.11  -0.005
+  TREMA-direct              0.9009  0.8251  -0.0758    0.966   0.7069   0.9052   0.8966   0.9569   1.83  -0.005
+  willia-umbrela1           0.9009  0.8608  -0.0400    0.855   0.7629   0.9267   0.8707   0.9683   1.06  -0.012
+  RMITIR-GPT4o              0.8966  0.8574  -0.0392    0.830   0.7543   0.9224   0.8621   0.9569   0.95  +0.006
+  TREMA-CoT                 0.8956  0.8320  -0.0635    0.958   0.7277   0.9009   0.8870   0.9473   1.72  -0.009
+  RMITIR-llama38b           0.8879  0.8449  -0.0431    0.817   0.7284   0.9224   0.8448   0.9526   0.90  -0.012
+  willia-umbrela2           0.8870  0.8343  -0.0527    0.884   0.7241   0.9095   0.8578   0.9565   1.20  +0.002
+  Olz-gpt4o                 0.8793  0.8654  -0.0139    0.582   0.7629   0.9310   0.7888   0.9397   0.21  -0.008
+  willia-umbrela3           0.8707  0.8361  -0.0346    0.772   0.7328   0.9095   0.8190   0.9483   0.74  +0.008
+  TREMA-nuggets             0.8664  0.6870  -0.1794    0.987   0.4095   0.8534   0.8750   0.9224   2.23  +0.000  <-- tau above percentile CI
+  prophet-setting4          0.8568  0.7891  -0.0678    0.866   0.6164   0.8956   0.8138   0.9450   1.11  -0.017
+  h2oloo-zeroshot2          0.8353  0.8457  +0.0104    0.351   0.7449   0.9171   0.6583   0.8913  -0.38  -0.027
+  TREMA-other               0.8276  0.7773  -0.0503    0.773   0.6336   0.8836   0.7586   0.9354   0.75  +0.044
+  TREMA-rubric0             0.8276  0.7533  -0.0742    0.873   0.5991   0.8664   0.7802   0.9138   1.14  -0.003
+
+  judges with tau above their own 95% percentile upper bound: 10/33
+  bootstrap bias (mean* - tau): median -0.0617, range [-0.1794, +0.0104]
+  share of replicates below tau: median 0.884, range [0.351, 0.993]
+  interval width: percentile median 0.1765; BCa median 0.0850
+  judges whose tau lies inside their own BCa interval: 23/33
+
+== Adjacent pairs: delta tau = tau(a) - tau(b), paired bootstrap ==
+  pair                                                   delta  perc lo  perc hi   BCa lo   BCa hi
+  prophet-setting2 vs TREMA-4prompts                   +0.0033  -0.0742  +0.0766  -0.0914  +0.0680
+  TREMA-4prompts vs NISTRetrieval-instruct0            +0.0043  -0.0560  +0.0647  -0.0388  +0.1034
+  NISTRetrieval-instruct0 vs NISTRetrieval-instruct1   +0.0000  -0.0043  +0.0043  -0.0043  +0.0043
+  NISTRetrieval-instruct1 vs NISTRetrieval-instruct2   +0.0000  -0.0043  +0.0000  -0.0043  +0.0000
+  NISTRetrieval-instruct2 vs RMITIR-llama70B           +0.0086  -0.0819  +0.0733  -0.0474  +0.1164
+  RMITIR-llama70B vs TREMA-sumdecompose                +0.0053  -0.0508  +0.1086  -0.1068  +0.0612
+  TREMA-sumdecompose vs Olz-multiprompt                +0.0033  -0.0905  +0.0551  -0.0483  +0.1046
+  Olz-multiprompt vs h2oloo-zeroshot1                  +0.0086  -0.0776  +0.0647  -0.0431  +0.1121
+  h2oloo-zeroshot1 vs TREMA-all                        +0.0043  -0.0388  +0.1207  -0.1559  +0.0431
+  TREMA-all vs TREMA-naiveBdecompose                   +0.0010  -0.0939  +0.0948  -0.0810  +0.1042
+  TREMA-naiveBdecompose vs TREMA-questions             +0.0033  -0.0999  +0.1456  -0.1143  +0.1198
+  TREMA-questions vs Olz-halfbin                       +0.0010  -0.1767  +0.0440  -0.0421  +0.1377
+  Olz-halfbin vs h2oloo-fewself                        +0.0000  -0.0733  +0.0474  -0.0517  +0.0732
+  h2oloo-fewself vs NISTRetrieval-reason0              +0.0033  -0.0569  +0.0991  -0.0781  +0.0723
+  NISTRetrieval-reason0 vs NISTRetrieval-reason2       +0.0000  +0.0000  +0.0000  +0.0000  +0.0000
+  NISTRetrieval-reason2 vs Olz-somebin                 +0.0010  -0.0517  +0.1215  -0.0856  +0.0647
+  Olz-somebin vs prophet-setting1                      +0.0000  -0.1422  +0.0742  -0.1033  +0.0947
+  prophet-setting1 vs NISTRetrieval-reason1            +0.0033  -0.0784  +0.0723  -0.0570  +0.0982
+  NISTRetrieval-reason1 vs Olz-exp                     +0.0000  -0.0819  +0.1121  -0.1078  +0.0819
+  Olz-exp vs TREMA-direct                              +0.0000  -0.0733  +0.1164  -0.2069  +0.0517
+  TREMA-direct vs willia-umbrela1                      +0.0000  -0.1164  +0.0388  -0.0345  +0.1108
+  willia-umbrela1 vs RMITIR-GPT4o                      +0.0043  -0.0560  +0.0603  -0.0560  +0.0603
+  RMITIR-GPT4o vs TREMA-CoT                            +0.0010  -0.0637  +0.1130  -0.1415  +0.0613
+  TREMA-CoT vs RMITIR-llama38b                         +0.0077  -0.0828  +0.0517  -0.0431  +0.0940
+  RMITIR-llama38b vs willia-umbrela2                   +0.0010  -0.0723  +0.1034  -0.0862  +0.0862
+  willia-umbrela2 vs Olz-gpt4o                         +0.0077  -0.1043  +0.0294  -0.0182  +0.0926
+  Olz-gpt4o vs willia-umbrela3                         +0.0086  -0.0302  +0.0962  -0.0647  +0.0517
+  willia-umbrela3 vs TREMA-nuggets                     +0.0043  -0.0302  +0.4138  -0.1594  +0.0388
+  TREMA-nuggets vs prophet-setting4                    +0.0095  -0.3707  +0.0991  -0.0766  +0.2834
+  prophet-setting4 vs h2oloo-zeroshot2                 +0.0215  -0.2112  +0.0603  -0.0215  +0.1907
+  h2oloo-zeroshot2 vs TREMA-other                      +0.0077  -0.0612  +0.2275  -0.2029  +0.0810
+  TREMA-other vs TREMA-rubric0                         +0.0000  -0.1379  +0.1940  -0.1845  +0.1422
+
+  adjacent-pair intervals excluding 0: percentile 0/32, BCa 0/32

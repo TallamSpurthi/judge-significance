@@ -1,0 +1,8 @@
+step 23 replay: 18 tied (pair, size) tasks; seed=0 reps=200 perms=200 boot=100; per-pair rejection rates differing from results/g-j2/23_test_size_check.tsv: 0
+saved tied-pair p-values to results/g-j2/33_calibrated_tied_rejection.npz
+  n= 25 permutation              critical p 0.014925: tied samples rejected 116/1800 = 0.0644 (nominal p < 0.05: 0.1328)
+  n= 25 studentized_permutation  critical p 0.014925: tied samples rejected 106/1800 = 0.0589 (nominal p < 0.05: 0.1272)
+  n= 25 bootstrap_z              critical p 0.054624: tied samples rejected 90/1800 = 0.0500 (nominal p < 0.05: 0.0467)
+  n=100 permutation              critical p 0.004975: tied samples rejected 113/1800 = 0.0628 (nominal p < 0.05: 0.1978)
+  n=100 studentized_permutation  critical p 0.009950: tied samples rejected 98/1800 = 0.0544 (nominal p < 0.05: 0.1394)
+  n=100 bootstrap_z              critical p 0.032470: tied samples rejected 90/1800 = 0.0500 (nominal p < 0.05: 0.0667)

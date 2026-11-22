@@ -1,0 +1,2 @@
+Figure 1 dev: 31 runs, nDCG@10, sample vs full qrels (82 topics): tau_b=0.9183 tau_a=0.9183 published 0.9183
+Figure 1 test: 31 runs, nDCG@10, sample vs full qrels (82 topics): tau_b=0.9473 tau_a=0.9462 published 0.9473

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "judge-significance"
+version = "0.1.0"
+description = "Significance tests for comparisons between relevance judges, with a reproduction of the LLMJudge Table 3 protocol"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.11",
+    "pytrec_eval-terrier>=0.5.6",
+]
+
+[project.optional-dependencies]
+figures = ["matplotlib>=3.8"]
+llm = ["anthropic>=2.7"]
+test = ["pytest>=9.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

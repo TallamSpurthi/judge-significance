@@ -1,0 +1,10 @@
+# tau of each new judge on the 25 LLMJudge topics (test) and the 57 held-out topics, from step 29
+judge	tau_test	tau_heldout
+qwen30b-umbrela	0.952586	0.912810
+sonnet-umbrela	0.943966	0.901075
+scout-umbrela	0.939655	0.905376
+haiku-llmjudge	0.935345	0.882670
+haiku-umbrela	0.931034	0.866667
+haiku-basic	0.930033	0.888172
+gemma4b-umbrela	0.905172	0.858065
+llama8b-umbrela	0.904199	0.913978

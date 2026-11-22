@@ -1,0 +1,249 @@
+DL 2019/2020 judge benchmark; data dlbench; perms=10000 boot=10000 reps=200 power_perms=500 power_boot=300 sizes=[25, 50, 100, 200, 400] alpha=0.05 dup_threshold=0.01 seed=0 workers=4
+label rules:
+  integer labels: used as distributed, no clipping (GPT-4o EXAM graded max is on 0-5, the rest on 0-1 or 0-3)
+  repeated samples of a pair (Llama 3.2 UMBRELA): mean of all samples, rounded half up (primary)
+  duplicated lines in a Farzi-Dietz log: the last line wins (primary)
+  Farzi-Dietz labels: the stored final_relevance_score (primary); re-parsed from LLMs_output (sensitivity only)
+  fractional labels (EXAM binary on [0, 1], EXAM graded mean on [0, 5]): excluded from the primary set;
+    sensitivity only: floor(3 * x / max + 0.5), i.e. scaled to 0-3 and rounded half up
+  pairs a judge did not label: absent from its qrels (trec_eval default: unjudged = non-relevant)
+
+================ dl19: 37 runs, 43 topics, 9260 judged pairs ================
+
+[1a] per-topic human nDCG@10 vs runs/dl19.ndcg_cut10 (trec_eval -q, printed to 4 decimals)
+  runs: 37 in runs/dl19/, 37 in the CSV, symmetric difference none
+  run-topic cells compared 1591; missing from CSV 0; CSV cells on other topics 0
+  max |pytrec_eval - CSV| = 5e-05; cells above 5e-5 (rounding bound): 0
+  max |pytrec_eval - independent pure-Python nDCG@10| = 3.33e-16
+
+[1b] Farzi and Dietz Table 2 (36 systems in their Table 1; 37 runs here)
+  config                        kappa4  pub    kappa01 pub    | tau(all runs) pub    diff
+  deepseek-v3/umbrela           0.360  0.360   0.518  0.518 | 0.9009       0.898 +0.0029
+  llama-3.3-70b/umbrela         0.207  0.266   0.422  0.447 | 0.8739       0.869 +0.0049
+  llama-3-8b/umbrela            0.108  0.108   0.244  0.244 | 0.8979       0.894 +0.0039
+  flan-t5-large/umbrela         0.050  0.050   0.292  0.292 | 0.8709       0.862 +0.0089
+  70B re-parsed (sensitivity)   0.264  0.266   0.447  0.447 | 0.8889       0.869 +0.0199
+  exclusions of 1 run(s) to reach 36: 37; max |diff| over the four <= 0.01: 21, <= 0.005: 12; all four equal at 3 dp: none
+  best max |diff| 0.0028, reached by 5 exclusion(s): UNH_bm25 (0.8952 0.8667 0.8921 0.8635); UNH_exDL_bm25 (0.8952 0.8667 0.8921 0.8635); idst_bert_p1 (0.8952 0.8667 0.8921 0.8635); idst_bert_p2 (0.8952 0.8698 0.8952 0.8635); runid4 (0.8952 0.8698 0.8921 0.8635)
+
+[2] configurations (coverage = human-judged pairs the judge labels; samples = labels per pair)
+  gpt-4o/binary                  9256/9260 (99.9568%) samples {1: 9256} disagreeing     0 | included tau=0.8520
+  gpt-4o/umbrela                 9260/9260 (100.0000%) samples {1: 9260} disagreeing     0 | included tau=0.9159
+  gpt-4o/exam-graded-max         9260/9260 (100.0000%) samples {1: 9260} disagreeing     0 | included tau=0.8619
+  gpt-4o/exam-graded-mean        9260/9260 (100.0000%) samples {1: 9260} disagreeing     0 | EXCLUDED: fractional labels tau=-
+  gpt-4o/exam-binary             9258/9260 (99.9784%) samples {1: 9258} disagreeing     0 | EXCLUDED: fractional labels tau=-
+  llama3.2/binary                9260/9260 (100.0000%) samples {1: 9260} disagreeing     0 | included tau=0.7829
+  llama3.2/umbrela               9260/9260 (100.0000%) samples {4: 7583, 5: 1674, 6: 3} disagreeing  8245 | included tau=0.8739
+  deepseek-v3/umbrela            9259/9260 (99.9892%) samples {1: 9259} disagreeing     0 | included tau=0.9009
+  llama-3.3-70b/umbrela          9260/9260 (100.0000%) samples {1: 9248, 2: 12} disagreeing     3 | included tau=0.8739
+  llama-3-8b/umbrela             9260/9260 (100.0000%) samples {1: 9251, 2: 8, 4: 1} disagreeing     0 | included tau=0.8979
+  flan-t5-large/umbrela          9260/9260 (100.0000%) samples {1: 9260} disagreeing     0 | included tau=0.8709
+  llama-3-8b/umbrela-basic       9260/9260 (100.0000%) samples {1: 9260} disagreeing     0 | included tau=0.7928
+
+  leaderboard (10 configurations, 37 runs, 43 topics):
+    1. gpt-4o/umbrela               tau_b = 0.9159
+    2. deepseek-v3/umbrela          tau_b = 0.9009
+    3. llama-3-8b/umbrela           tau_b = 0.8979
+    4. llama-3.3-70b/umbrela        tau_b = 0.8739
+    5. llama3.2/umbrela             tau_b = 0.8739
+    6. flan-t5-large/umbrela        tau_b = 0.8709
+    7. gpt-4o/exam-graded-max       tau_b = 0.8619
+    8. gpt-4o/binary                tau_b = 0.8520
+    9. llama-3-8b/umbrela-basic     tau_b = 0.7928
+   10. llama3.2/binary              tau_b = 0.7829
+
+[2s] label-rule sensitivity (tau_b; rank among the primary configurations if substituted)
+  llama3.2/umbrela, aggregation mean                   tau_b = 0.8739 (primary 0.8739; rank 4 of 10)
+  llama3.2/umbrela, aggregation mode                   tau_b = 0.8919 (primary 0.8739; rank 4 of 10)
+  llama3.2/umbrela, aggregation mean4                  tau_b = 0.8799 (primary 0.8739; rank 4 of 10)
+  llama3.2/umbrela, aggregation first                  tau_b = 0.8468 (primary 0.8739; rank 8 of 10)
+  llama3.2/umbrela, aggregation last                   tau_b = 0.8228 (primary 0.8739; rank 8 of 10)
+  llama-3.3-70b/umbrela, duplicates: first line wins   tau_b = 0.8739 (primary 0.8739; rank 4 of 10)
+  llama-3.3-70b/umbrela, labels re-parsed from output  tau_b = 0.8889 (primary 0.8739; rank 4 of 10)
+  gpt-4o/exam-graded-max mapped 0-5 -> 0-3             tau_b = 0.8619 (primary 0.8619; rank 7 of 10)
+  gpt-4o/exam-graded-mean binned to 0-3 (frac:5)       tau_b = 0.8288 (not in primary set; rank 9 of 11)
+  gpt-4o/exam-binary binned to 0-3 (frac:1)            tau_b = 0.8318 (not in primary set; rank 9 of 11)
+
+[3] separability: paired permutation test (P = 10000), bootstrap z-test (B = 10000); jackknife t-test (df = topics - 1) for the record only
+
+  adjacent:                                                 delta   | perm p  holm    BH      | boot p  holm    BH      | jack p  holm    BH
+   gpt-4o/umbrela             vs deepseek-v3/umbrela        +0.0150 | 0.5441 1.0000 1.0000 | 0.5796 1.0000 1.0000 | 0.8501 1.0000 1.0000
+   deepseek-v3/umbrela        vs llama-3-8b/umbrela         +0.0030 | 0.9631 1.0000 1.0000 | 0.9399 1.0000 1.0000 | 0.9627 1.0000 1.0000
+   llama-3-8b/umbrela         vs llama-3.3-70b/umbrela      +0.0240 | 0.4392 1.0000 1.0000 | 0.5830 1.0000 1.0000 | 0.7751 1.0000 1.0000
+   llama-3.3-70b/umbrela      vs llama3.2/umbrela           +0.0000 | 1.0000 1.0000 1.0000 | 1.0000 1.0000 1.0000 | 1.0000 1.0000 1.0000
+   llama3.2/umbrela           vs flan-t5-large/umbrela      +0.0030 | 0.9706 1.0000 1.0000 | 0.9657 1.0000 1.0000 | 0.9670 1.0000 1.0000
+   flan-t5-large/umbrela      vs gpt-4o/exam-graded-max     +0.0090 | 0.8339 1.0000 1.0000 | 0.8885 1.0000 1.0000 | 0.9009 1.0000 1.0000
+   gpt-4o/exam-graded-max     vs gpt-4o/binary              +0.0099 | 0.7204 1.0000 1.0000 | 0.7883 1.0000 1.0000 | 0.9104 1.0000 1.0000
+   gpt-4o/binary              vs llama-3-8b/umbrela-basic   +0.0592 | 0.2406 1.0000 1.0000 | 0.4294 1.0000 1.0000 | 0.4908 1.0000 1.0000
+   llama-3-8b/umbrela-basic   vs llama3.2/binary            +0.0099 | 0.8553 1.0000 1.0000 | 0.9016 1.0000 1.0000 | 0.9358 1.0000 1.0000
+  adjacent separable at 0.05, permutation test: uncorrected 0/9, Holm 0/9, BH 0/9
+  adjacent separable at 0.05, bootstrap z-test: uncorrected 0/9, Holm 0/9, BH 0/9
+  adjacent separable at 0.05, jackknife t-test (record only): uncorrected 0/9, Holm 0/9, BH 0/9
+
+  top_vs_other:                                                 delta   | perm p  holm    BH      | boot p  holm    BH      | jack p  holm    BH
+   gpt-4o/umbrela             vs deepseek-v3/umbrela        +0.0150 | 0.5500 1.0000 0.5963 | 0.5820 1.0000 0.6548 | 0.8501 1.0000 0.8613
+   gpt-4o/umbrela             vs llama-3-8b/umbrela         +0.0180 | 0.5963 1.0000 0.5963 | 0.6782 1.0000 0.6782 | 0.8613 1.0000 0.8613
+   gpt-4o/umbrela             vs llama-3.3-70b/umbrela      +0.0420 | 0.0665 0.3325 0.1197 | 0.2389 1.0000 0.4300 | 0.5948 1.0000 0.7747
+   gpt-4o/umbrela             vs llama3.2/umbrela           +0.0420 | 0.3121 0.9362 0.4012 | 0.4012 1.0000 0.5316 | 0.6026 1.0000 0.7747
+   gpt-4o/umbrela             vs flan-t5-large/umbrela      +0.0450 | 0.1734 0.6935 0.2601 | 0.4134 1.0000 0.5316 | 0.5321 1.0000 0.7747
+   gpt-4o/umbrela             vs gpt-4o/exam-graded-max     +0.0541 | 0.0461 0.2766 0.1037 | 0.0947 0.6630 0.2403 | 0.4436 1.0000 0.7747
+   gpt-4o/umbrela             vs gpt-4o/binary              +0.0639 | 0.0175 0.1225 0.0525 | 0.0768 0.6141 0.2403 | 0.5443 1.0000 0.7747
+   gpt-4o/umbrela             vs llama-3-8b/umbrela-basic   +0.1231 | 0.0050 0.0400 0.0225 | 0.1068 0.6630 0.2403 | 0.3426 1.0000 0.7747
+   gpt-4o/umbrela             vs llama3.2/binary            +0.1330 | 0.0003 0.0027 0.0027 | 0.0064 0.0573 0.0573 | 0.2072 1.0000 0.7747
+  top_vs_other separable at 0.05, permutation test: uncorrected 4/9, Holm 2/9, BH 2/9
+  top_vs_other separable at 0.05, bootstrap z-test: uncorrected 1/9, Holm 0/9, BH 0/9
+  top_vs_other separable at 0.05, jackknife t-test (record only): uncorrected 0/9, Holm 0/9, BH 0/9
+
+  (42 s so far for dl19)
+
+[4] power: 45 judge pairs, topics drawn with replacement from the 43 topics; reps=200, permutation test P=500, bootstrap z-test B=300, alpha=0.05 (858 s, 4 workers)
+  label disagreement between judges (share of human-judged pairs): min 0.2407, median 0.6289; smallest: gpt-4o/umbrela vs deepseek-v3/umbrela 0.2407; gpt-4o/binary vs llama3.2/binary 0.2721; gpt-4o/umbrela vs gpt-4o/binary 0.3726
+  near-duplicate pairs (disagreement < 0.01) excluded from the summaries: 0
+
+  permutation test
+  full-year gap      pairs | median power at n =    25    50   100   200   400 | share of pairs with power >= 0.8
+  [0.000, 0.005)       4 |  0.17  0.19  0.15  0.18  0.17   |  0.00  0.00  0.00  0.00  0.00
+  [0.005, 0.010)       3 |  0.10  0.16  0.20  0.20  0.19   |  0.00  0.00  0.00  0.00  0.00
+  [0.010, 0.025)       9 |  0.11  0.14  0.21  0.27  0.32   |  0.00  0.00  0.00  0.00  0.00
+  [0.025, 0.050)      11 |  0.27  0.39  0.47  0.49  0.57   |  0.00  0.00  0.09  0.09  0.09
+  [0.050, 0.075)       5 |  0.27  0.32  0.49  0.69  0.83   |  0.00  0.00  0.20  0.20  0.60
+  [0.075, 0.100)       7 |  0.23  0.35  0.61  0.69  0.88   |  0.00  0.00  0.00  0.43  0.86
+  [0.100, 0.150)       6 |  0.68  0.77  0.86  0.96  0.99   |  0.00  0.33  0.67  1.00  1.00
+  [0.150, 1.000)       0 |
+  rejection rate, pairs with gap < 0.005 (4 pairs; mean over pairs): n=25: 0.193 n=50: 0.200 n=100: 0.176 n=200: 0.188 n=400: 0.181
+    deepseek-v3/umbrela vs llama-3-8b/umbrela (gap 0.0030): 0.280 0.265 0.175 0.165 0.120
+    llama-3.3-70b/umbrela vs llama3.2/umbrela (gap 0.0000): 0.155 0.160 0.120 0.190 0.200
+    llama-3.3-70b/umbrela vs flan-t5-large/umbrela (gap 0.0030): 0.155 0.215 0.280 0.265 0.265
+    llama3.2/umbrela vs flan-t5-large/umbrela (gap 0.0030): 0.180 0.160 0.130 0.130 0.140
+
+  bootstrap z-test
+  full-year gap      pairs | median power at n =    25    50   100   200   400 | share of pairs with power >= 0.8
+  [0.000, 0.005)       4 |  0.04  0.04  0.04  0.06  0.05   |  0.00  0.00  0.00  0.00  0.00
+  [0.005, 0.010)       3 |  0.04  0.04  0.04  0.07  0.05   |  0.00  0.00  0.00  0.00  0.00
+  [0.010, 0.025)       9 |  0.03  0.04  0.06  0.11  0.15   |  0.00  0.00  0.00  0.00  0.00
+  [0.025, 0.050)      11 |  0.06  0.14  0.21  0.33  0.41   |  0.00  0.00  0.09  0.09  0.18
+  [0.050, 0.075)       5 |  0.10  0.14  0.28  0.54  0.64   |  0.00  0.00  0.00  0.20  0.20
+  [0.075, 0.100)       7 |  0.08  0.14  0.27  0.52  0.76   |  0.00  0.00  0.00  0.14  0.43
+  [0.100, 0.150)       6 |  0.27  0.41  0.60  0.88  0.98   |  0.00  0.00  0.33  0.67  1.00
+  [0.150, 1.000)       0 |
+  rejection rate, pairs with gap < 0.005 (4 pairs; mean over pairs): n=25: 0.043 n=50: 0.041 n=100: 0.046 n=200: 0.062 n=400: 0.057
+    deepseek-v3/umbrela vs llama-3-8b/umbrela (gap 0.0030): 0.070 0.065 0.080 0.085 0.070
+    llama-3.3-70b/umbrela vs llama3.2/umbrela (gap 0.0000): 0.015 0.040 0.030 0.045 0.105
+    llama-3.3-70b/umbrela vs flan-t5-large/umbrela (gap 0.0030): 0.055 0.040 0.050 0.080 0.035
+    llama3.2/umbrela vs flan-t5-large/umbrela (gap 0.0030): 0.030 0.020 0.025 0.040 0.020
+  Monte Carlo SE of a rate near 0.5 / near 0.05 at 200 reps: 0.035 / 0.015
+
+================ dl20: 59 runs, 54 topics, 11386 judged pairs ================
+
+[1a] per-topic human nDCG@10 vs runs/dl20.ndcg_cut10 (trec_eval -q, printed to 4 decimals)
+  runs: 59 in runs/dl20/, 59 in the CSV, symmetric difference none
+  run-topic cells compared 3186; missing from CSV 0; CSV cells on other topics 0
+  max |pytrec_eval - CSV| = 5e-05; cells above 5e-5 (rounding bound): 0
+  max |pytrec_eval - independent pure-Python nDCG@10| = 4.44e-16
+
+[1b] Farzi and Dietz Table 2 (59 systems in their Table 1; 59 runs here)
+  config                        kappa4  pub    kappa01 pub    | tau(all runs) pub    diff
+  deepseek-v3/umbrela           0.358  0.358   0.426  0.426 | 0.9404       0.940 +0.0004
+  llama-3.3-70b/umbrela         0.183  0.247   0.335  0.344 | 0.8784       0.911 -0.0326
+  llama-3-8b/umbrela            0.115  0.115   0.187  0.187 | 0.8691       0.870 -0.0009
+  flan-t5-large/umbrela         0.036  0.036   0.231  0.231 | 0.7171       0.717 +0.0001
+  70B re-parsed (sensitivity)   0.246  0.247   0.343  0.344 | 0.9100       0.911 -0.0010
+
+[2] configurations (coverage = human-judged pairs the judge labels; samples = labels per pair)
+  gpt-4o/binary                 11381/11386 (99.9561%) samples {1: 11381} disagreeing     0 | included tau=0.9155
+  gpt-4o/umbrela                11386/11386 (100.0000%) samples {1: 11386} disagreeing     0 | included tau=0.9462
+  gpt-4o/exam-graded-max        11384/11386 (99.9824%) samples {1: 11384} disagreeing     0 | included tau=0.9334
+  gpt-4o/exam-graded-mean       11384/11386 (99.9824%) samples {1: 11384} disagreeing     0 | EXCLUDED: fractional labels [labels identical to gpt-4o/exam-graded-max; all labels integer-valued] tau=-
+  gpt-4o/exam-binary            11381/11386 (99.9561%) samples {1: 11381} disagreeing     0 | EXCLUDED: fractional labels tau=-
+  llama3.2/binary               11386/11386 (100.0000%) samples {1: 11386} disagreeing     0 | included tau=0.8584
+  llama3.2/umbrela              11386/11386 (100.0000%) samples {4: 11386} disagreeing  9905 | included tau=0.9065
+  deepseek-v3/umbrela           11385/11386 (99.9912%) samples {1: 11385} disagreeing     0 | included tau=0.9404
+  llama-3.3-70b/umbrela         11386/11386 (100.0000%) samples {1: 11386} disagreeing     0 | included tau=0.8784
+  llama-3-8b/umbrela            11386/11386 (100.0000%) samples {1: 11386} disagreeing     0 | included tau=0.8691
+  flan-t5-large/umbrela         11386/11386 (100.0000%) samples {1: 11386} disagreeing     0 | included tau=0.7171
+  llama-3-8b/umbrela-basic      11386/11386 (100.0000%) samples {1: 11386} disagreeing     0 | included tau=0.9006
+
+  leaderboard (10 configurations, 59 runs, 54 topics):
+    1. gpt-4o/umbrela               tau_b = 0.9462
+    2. deepseek-v3/umbrela          tau_b = 0.9404
+    3. gpt-4o/exam-graded-max       tau_b = 0.9334
+    4. gpt-4o/binary                tau_b = 0.9155
+    5. llama3.2/umbrela             tau_b = 0.9065
+    6. llama-3-8b/umbrela-basic     tau_b = 0.9006
+    7. llama-3.3-70b/umbrela        tau_b = 0.8784
+    8. llama-3-8b/umbrela           tau_b = 0.8691
+    9. llama3.2/binary              tau_b = 0.8584
+   10. flan-t5-large/umbrela        tau_b = 0.7171
+
+[2s] label-rule sensitivity (tau_b; rank among the primary configurations if substituted)
+  llama3.2/umbrela, aggregation mean                   tau_b = 0.9065 (primary 0.9065; rank 5 of 10)
+  llama3.2/umbrela, aggregation mode                   tau_b = 0.8784 (primary 0.9065; rank 6 of 10)
+  llama3.2/umbrela, aggregation mean4                  tau_b = 0.9065 (primary 0.9065; rank 5 of 10)
+  llama3.2/umbrela, aggregation first                  tau_b = 0.8796 (primary 0.9065; rank 6 of 10)
+  llama3.2/umbrela, aggregation last                   tau_b = 0.8609 (primary 0.9065; rank 8 of 10)
+  llama-3.3-70b/umbrela, duplicates: first line wins   tau_b = 0.8784 (primary 0.8784; rank 7 of 10)
+  llama-3.3-70b/umbrela, labels re-parsed from output  tau_b = 0.9100 (primary 0.8784; rank 5 of 10)
+  gpt-4o/exam-graded-max mapped 0-5 -> 0-3             tau_b = 0.9287 (primary 0.9334; rank 3 of 10)
+  gpt-4o/exam-graded-mean binned to 0-3 (frac:5)       tau_b = 0.9287 (not in primary set; rank 4 of 11)
+  gpt-4o/exam-binary binned to 0-3 (frac:1)            tau_b = 0.9077 (not in primary set; rank 5 of 11)
+
+[3] separability: paired permutation test (P = 10000), bootstrap z-test (B = 10000); jackknife t-test (df = topics - 1) for the record only
+
+  adjacent:                                                 delta   | perm p  holm    BH      | boot p  holm    BH      | jack p  holm    BH
+   gpt-4o/umbrela             vs deepseek-v3/umbrela        +0.0058 | 0.5729 1.0000 0.8196 | 0.7455 1.0000 0.8856 | 0.8754 1.0000 0.8956
+   deepseek-v3/umbrela        vs gpt-4o/exam-graded-max     +0.0070 | 0.6529 1.0000 0.8196 | 0.7333 1.0000 0.8856 | 0.8708 1.0000 0.8956
+   gpt-4o/exam-graded-max     vs gpt-4o/binary              +0.0179 | 0.1667 1.0000 0.7501 | 0.4788 1.0000 0.8856 | 0.5781 1.0000 0.8956
+   gpt-4o/binary              vs llama3.2/umbrela           +0.0090 | 0.6893 1.0000 0.8196 | 0.7989 1.0000 0.8856 | 0.8531 1.0000 0.8956
+   llama3.2/umbrela           vs llama-3-8b/umbrela-basic   +0.0058 | 0.8271 1.0000 0.8271 | 0.8856 1.0000 0.8856 | 0.8956 1.0000 0.8956
+   llama-3-8b/umbrela-basic   vs llama-3.3-70b/umbrela      +0.0222 | 0.3891 1.0000 0.8196 | 0.4885 1.0000 0.8856 | 0.6054 1.0000 0.8956
+   llama-3.3-70b/umbrela      vs llama-3-8b/umbrela         +0.0094 | 0.7285 1.0000 0.8196 | 0.7651 1.0000 0.8856 | 0.8546 1.0000 0.8956
+   llama-3-8b/umbrela         vs llama3.2/binary            +0.0107 | 0.7181 1.0000 0.8196 | 0.8008 1.0000 0.8856 | 0.8820 1.0000 0.8956
+   llama3.2/binary            vs flan-t5-large/umbrela      +0.1413 | 0.0097 0.0873 0.0873 | 0.0139 0.1254 0.1254 | 0.1115 1.0000 0.8956
+  adjacent separable at 0.05, permutation test: uncorrected 1/9, Holm 0/9, BH 0/9
+  adjacent separable at 0.05, bootstrap z-test: uncorrected 1/9, Holm 0/9, BH 0/9
+  adjacent separable at 0.05, jackknife t-test (record only): uncorrected 0/9, Holm 0/9, BH 0/9
+
+  top_vs_other:                                                 delta   | perm p  holm    BH      | boot p  holm    BH      | jack p  holm    BH
+   gpt-4o/umbrela             vs deepseek-v3/umbrela        +0.0058 | 0.5706 0.7315 0.5706 | 0.7489 1.0000 0.7489 | 0.8754 1.0000 0.8754
+   gpt-4o/umbrela             vs gpt-4o/exam-graded-max     +0.0129 | 0.3658 0.7315 0.4115 | 0.5937 1.0000 0.6679 | 0.7056 1.0000 0.7938
+   gpt-4o/umbrela             vs gpt-4o/binary              +0.0307 | 0.0394 0.1272 0.0507 | 0.1388 0.5550 0.2081 | 0.3663 1.0000 0.4920
+   gpt-4o/umbrela             vs llama3.2/umbrela           +0.0397 | 0.0318 0.1272 0.0477 | 0.2616 0.7849 0.3364 | 0.3827 1.0000 0.4920
+   gpt-4o/umbrela             vs llama-3-8b/umbrela-basic   +0.0456 | 0.0127 0.0635 0.0229 | 0.0687 0.3434 0.1236 | 0.2275 1.0000 0.4096
+   gpt-4o/umbrela             vs llama-3.3-70b/umbrela      +0.0678 | 0.0003 0.0018 0.0007 | 0.0047 0.0379 0.0213 | 0.0847 0.6774 0.2806
+   gpt-4o/umbrela             vs llama-3-8b/umbrela         +0.0771 | 0.0001 0.0009 0.0003 | 0.0087 0.0606 0.0260 | 0.1089 0.7621 0.2806
+   gpt-4o/umbrela             vs llama3.2/binary            +0.0878 | 0.0001 0.0009 0.0003 | 0.0327 0.1964 0.0737 | 0.1247 0.7621 0.2806
+   gpt-4o/umbrela             vs flan-t5-large/umbrela      +0.2291 | 0.0001 0.0009 0.0003 | 0.0000 0.0000 0.0000 | 0.0051 0.0463 0.0463
+  top_vs_other separable at 0.05, permutation test: uncorrected 7/9, Holm 4/9, BH 6/9
+  top_vs_other separable at 0.05, bootstrap z-test: uncorrected 4/9, Holm 2/9, BH 3/9
+  top_vs_other separable at 0.05, jackknife t-test (record only): uncorrected 1/9, Holm 1/9, BH 1/9
+
+  (45 s so far for dl20)
+
+[4] power: 45 judge pairs, topics drawn with replacement from the 54 topics; reps=200, permutation test P=500, bootstrap z-test B=300, alpha=0.05 (1163 s, 4 workers)
+  label disagreement between judges (share of human-judged pairs): min 0.2074, median 0.5999; smallest: gpt-4o/umbrela vs deepseek-v3/umbrela 0.2074; gpt-4o/binary vs llama3.2/binary 0.3014; gpt-4o/umbrela vs gpt-4o/binary 0.3096
+  near-duplicate pairs (disagreement < 0.01) excluded from the summaries: 0
+
+  permutation test
+  full-year gap      pairs | median power at n =    25    50   100   200   400 | share of pairs with power >= 0.8
+  [0.000, 0.005)       0 |
+  [0.005, 0.010)       5 |  0.14  0.18  0.23  0.29  0.34   |  0.00  0.00  0.00  0.00  0.00
+  [0.010, 0.025)       7 |  0.24  0.34  0.41  0.52  0.63   |  0.00  0.00  0.00  0.00  0.14
+  [0.025, 0.050)      14 |  0.29  0.33  0.45  0.69  0.87   |  0.07  0.07  0.29  0.36  0.71
+  [0.050, 0.075)       7 |  0.56  0.76  0.88  0.97  1.00   |  0.00  0.14  0.71  0.86  1.00
+  [0.075, 0.100)       3 |  0.90  0.96  1.00  1.00  1.00   |  1.00  1.00  1.00  1.00  1.00
+  [0.100, 0.150)       1 |  0.16  0.33  0.70  0.94  0.99   |  0.00  0.00  0.00  1.00  1.00
+  [0.150, 1.000)       8 |  0.78  0.91  0.99  1.00  1.00   |  0.50  0.75  1.00  1.00  1.00
+  no pair has gap < 0.005
+
+  bootstrap z-test
+  full-year gap      pairs | median power at n =    25    50   100   200   400 | share of pairs with power >= 0.8
+  [0.000, 0.005)       0 |
+  [0.005, 0.010)       5 |  0.08  0.06  0.07  0.10  0.17   |  0.00  0.00  0.00  0.00  0.00
+  [0.010, 0.025)       7 |  0.12  0.17  0.23  0.25  0.32   |  0.00  0.00  0.00  0.00  0.00
+  [0.025, 0.050)      14 |  0.14  0.15  0.25  0.52  0.78   |  0.00  0.00  0.07  0.14  0.50
+  [0.050, 0.075)       7 |  0.32  0.50  0.71  0.93  0.98   |  0.00  0.00  0.29  0.71  1.00
+  [0.075, 0.100)       3 |  0.68  0.83  0.95  0.99  1.00   |  0.00  0.67  1.00  1.00  1.00
+  [0.100, 0.150)       1 |  0.14  0.26  0.62  0.90  0.99   |  0.00  0.00  0.00  1.00  1.00
+  [0.150, 1.000)       8 |  0.72  0.89  0.99  1.00  1.00   |  0.25  0.62  1.00  1.00  1.00
+  no pair has gap < 0.005
+  Monte Carlo SE of a rate near 0.5 / near 0.05 at 200 reps: 0.035 / 0.015

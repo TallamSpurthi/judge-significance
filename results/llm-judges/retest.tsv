@@ -1,0 +1,31 @@
+name	value	meaning
+n_retest_haiku-basic	4419	haiku-basic: LLMJudge test pairs labelled by the second run (of 4423)
+agree_haiku-basic	0.7327	haiku-basic: share of pairs labelled by both runs with equal labels
+tau_first_haiku-basic	0.9300	haiku-basic: tau on the 25 topics, released run
+tau_second_haiku-basic	0.9602	haiku-basic: tau on the 25 topics, second run
+tau_diff_haiku-basic	0.0301	haiku-basic: absolute difference in tau between the two runs
+system_kendall_haiku-basic	0.9484	haiku-basic: Kendall tau_b between the system rankings of the two runs
+gaps_below_haiku-basic	7	haiku-basic: adjacent gaps among the 8 judges on the 25 topics smaller than its run difference
+rank_first_haiku-basic	6	haiku-basic: rank among the 8 judges on the 25 topics with its released run
+rank_second_haiku-basic	1	haiku-basic: rank among the 8 judges on the 25 topics with its second run
+order_kendall_swap_haiku-basic	0.2143	judge order, 25 vs held-out topics, with haiku-basic's second run
+order_flips_swap_haiku-basic	11	pairs ordered oppositely, with haiku-basic's second run
+n_retest_haiku-llmjudge	4419	haiku-llmjudge: LLMJudge test pairs labelled by the second run (of 4423)
+agree_haiku-llmjudge	0.9178	haiku-llmjudge: share of pairs labelled by both runs with equal labels
+tau_first_haiku-llmjudge	0.9353	haiku-llmjudge: tau on the 25 topics, released run
+tau_second_haiku-llmjudge	0.9214	haiku-llmjudge: tau on the 25 topics, second run
+tau_diff_haiku-llmjudge	0.0139	haiku-llmjudge: absolute difference in tau between the two runs
+system_kendall_haiku-llmjudge	0.9860	haiku-llmjudge: Kendall tau_b between the system rankings of the two runs
+gaps_below_haiku-llmjudge	6	haiku-llmjudge: adjacent gaps among the 8 judges on the 25 topics smaller than its run difference
+rank_first_haiku-llmjudge	4	haiku-llmjudge: rank among the 8 judges on the 25 topics with its released run
+rank_second_haiku-llmjudge	6	haiku-llmjudge: rank among the 8 judges on the 25 topics with its second run
+order_kendall_swap_haiku-llmjudge	0.2857	judge order, 25 vs held-out topics, with haiku-llmjudge's second run
+order_flips_swap_haiku-llmjudge	10	pairs ordered oppositely, with haiku-llmjudge's second run
+n_adjacent_gaps	7	adjacent gaps among the 8 judges on the 25 topics
+max_tau_diff	0.0301	largest run-to-run difference in tau
+min_tau_diff	0.0139	smallest run-to-run difference in tau
+order_kendall_min_runs	0.1429	lowest agreement of the judge orders, 25 vs held-out topics, over every choice of run
+order_kendall_max_runs	0.2857	highest agreement of the judge orders, 25 vs held-out topics, over every choice of run
+order_flips_min_runs	10	fewest pairs ordered oppositely over every choice of run
+order_flips_max_runs	12	most pairs ordered oppositely over every choice of run
+fill	0	1 if pairs the second run lacks were taken from the first run

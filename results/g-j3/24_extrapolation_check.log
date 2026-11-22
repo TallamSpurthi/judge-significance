@@ -1,0 +1,17 @@
+bootstrap z-test, alpha=0.05; K=10 random 25-topic subsets; reps=100 B=300 seed=0
+
+== dl19: 43 topics, 37 systems, 45 judge pairs ==
+  n = 43 (all topics): power predicted from 25-topic subsets vs measured on all 43 topics: mean error +0.057, median |error| 0.056, correlation 0.90
+    resolution: measured none; predicted from subsets median 0.133, range 0.133-0.133 (8 of 10 subsets: none)
+  n = 100 (100 topics): power predicted from 25-topic subsets vs measured on all 43 topics: mean error +0.080, median |error| 0.120, correlation 0.86
+    resolution: measured 0.1330456724215191; predicted from subsets median 0.133, range 0.108-0.133 (5 of 10 subsets: none)
+
+== dl20: 54 topics, 59 systems, 45 judge pairs ==
+  n = 54 (all topics): power predicted from 25-topic subsets vs measured on all 54 topics: mean error +0.045, median |error| 0.082, correlation 0.93
+    resolution: measured 0.0819884282972867; predicted from subsets median 0.189, range 0.075-0.223 (0 of 10 subsets: none)
+  n = 100 (100 topics): power predicted from 25-topic subsets vs measured on all 54 topics: mean error +0.042, median |error| 0.121, correlation 0.92
+    resolution: measured 0.06428988895382826; predicted from subsets median 0.080, range 0.048-0.189 (0 of 10 subsets: none)
+  systems: n = 54: resolution with all 59 systems 0.0819884282972867; with 31 systems median 0.217, range 0.172-0.237 (1 of 5 subsets: none); median power over pairs 0.28 (all) vs 0.22 (31 systems)
+  systems: n = 100: resolution with all 59 systems 0.06428988895382826; with 31 systems median 0.117, range 0.077-0.198 (0 of 5 subsets: none); median power over pairs 0.44 (all) vs 0.30 (31 systems)
+
+  Monte Carlo SE of a power estimate near 0.5 at 100 reps: 0.050

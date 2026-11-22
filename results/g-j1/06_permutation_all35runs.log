@@ -1,0 +1,75 @@
+runs=35 (excluded: none) topics=25 judges=33 P=10000 seed=0
+tau check vs Table 3: 0/33 exact at 4 dp; mismatches ['NISTRetrieval-instruct0', 'NISTRetrieval-instruct1', 'NISTRetrieval-instruct2', 'NISTRetrieval-reason0', 'NISTRetrieval-reason1', 'NISTRetrieval-reason2', 'Olz-exp', 'Olz-gpt4o', 'Olz-halfbin', 'Olz-multiprompt', 'Olz-somebin', 'RMITIR-GPT4o', 'RMITIR-llama38b', 'RMITIR-llama70B', 'TREMA-4prompts', 'TREMA-CoT', 'TREMA-all', 'TREMA-direct', 'TREMA-naiveBdecompose', 'TREMA-nuggets', 'TREMA-other', 'TREMA-questions', 'TREMA-rubric0', 'TREMA-sumdecompose', 'h2oloo-fewself', 'h2oloo-zeroshot1', 'h2oloo-zeroshot2', 'prophet-setting1', 'prophet-setting2', 'prophet-setting4', 'willia-umbrela1', 'willia-umbrela2', 'willia-umbrela3']
+
+adjacent pairs (published order): delta tau_b, permutation p, Holm-adjusted p
+  prophet-setting2         vs TREMA-4prompts           d=+0.0059 p=0.7768 holm=1.0000
+  TREMA-4prompts           vs NISTRetrieval-instruct0  d=+0.0034 p=0.8095 holm=1.0000
+  NISTRetrieval-instruct0  vs NISTRetrieval-instruct1  d=+0.0000 p=1.0000 holm=1.0000
+  NISTRetrieval-instruct1  vs NISTRetrieval-instruct2  d=+0.0000 p=1.0000 holm=1.0000
+  NISTRetrieval-instruct2  vs RMITIR-llama70B          d=+0.0101 p=0.5591 holm=1.0000
+  RMITIR-llama70B          vs TREMA-sumdecompose       d=+0.0008 p=0.9563 holm=1.0000
+  TREMA-sumdecompose       vs Olz-multiprompt          d=+0.0026 p=0.8652 holm=1.0000
+  Olz-multiprompt          vs h2oloo-zeroshot1         d=+0.0034 p=0.9585 holm=1.0000
+  h2oloo-zeroshot1         vs TREMA-all                d=+0.0101 p=0.7946 holm=1.0000
+  TREMA-all                vs TREMA-naiveBdecompose    d=-0.0060 p=0.8319 holm=1.0000
+  TREMA-naiveBdecompose    vs TREMA-questions          d=+0.0060 p=0.8245 holm=1.0000
+  TREMA-questions          vs Olz-halfbin              d=+0.0008 p=0.9706 holm=1.0000
+  Olz-halfbin              vs h2oloo-fewself           d=+0.0000 p=1.0000 holm=1.0000
+  h2oloo-fewself           vs NISTRetrieval-reason0    d=+0.0026 p=0.9225 holm=1.0000
+  NISTRetrieval-reason0    vs NISTRetrieval-reason2    d=+0.0000 p=1.0000 holm=1.0000
+  NISTRetrieval-reason2    vs Olz-somebin              d=+0.0041 p=0.8791 holm=1.0000
+  Olz-somebin              vs prophet-setting1         d=-0.0034 p=0.9532 holm=1.0000
+  prophet-setting1         vs NISTRetrieval-reason1    d=+0.0026 p=0.9277 holm=1.0000
+  NISTRetrieval-reason1    vs Olz-exp                  d=-0.0034 p=0.9361 holm=1.0000
+  Olz-exp                  vs TREMA-direct             d=+0.0000 p=1.0000 holm=1.0000
+  TREMA-direct             vs willia-umbrela1          d=+0.0034 p=0.9607 holm=1.0000
+  willia-umbrela1          vs RMITIR-GPT4o             d=+0.0067 p=0.7847 holm=1.0000
+  RMITIR-GPT4o             vs TREMA-CoT                d=-0.0026 p=0.8762 holm=1.0000
+  TREMA-CoT                vs RMITIR-llama38b          d=+0.0093 p=0.6682 holm=1.0000
+  RMITIR-llama38b          vs willia-umbrela2          d=-0.0026 p=0.9546 holm=1.0000
+  willia-umbrela2          vs Olz-gpt4o                d=+0.0026 p=0.9416 holm=1.0000
+  Olz-gpt4o                vs willia-umbrela3          d=+0.0067 p=0.8572 holm=1.0000
+  willia-umbrela3          vs TREMA-nuggets            d=+0.0168 p=0.7969 holm=1.0000
+  TREMA-nuggets            vs prophet-setting4         d=-0.0060 p=0.8901 holm=1.0000
+  prophet-setting4         vs h2oloo-zeroshot2         d=+0.0168 p=0.6540 holm=1.0000
+  h2oloo-zeroshot2         vs TREMA-other              d=+0.0060 p=0.8959 holm=1.0000
+  TREMA-other              vs TREMA-rubric0            d=+0.0067 p=0.9428 holm=1.0000
+
+adjacent pairs separable at p<0.05 (uncorrected): 0/32; after Holm: 0/32
+adjacent gaps: min -0.0060, max 0.0168; zero gaps: 5
+
+top judge (prophet-setting2) vs each other judge:
+  vs TREMA-4prompts           d=+0.0059 p=0.7709 holm=1.0000
+  vs NISTRetrieval-instruct0  d=+0.0093 p=0.6590 holm=1.0000
+  vs NISTRetrieval-instruct1  d=+0.0093 p=0.6524 holm=1.0000
+  vs NISTRetrieval-instruct2  d=+0.0093 p=0.6628 holm=1.0000
+  vs RMITIR-llama70B          d=+0.0194 p=0.3892 holm=1.0000
+  vs TREMA-sumdecompose       d=+0.0202 p=0.3556 holm=1.0000
+  vs Olz-multiprompt          d=+0.0228 p=0.3209 holm=1.0000
+  vs h2oloo-zeroshot1         d=+0.0261 p=0.3705 holm=1.0000
+  vs TREMA-all                d=+0.0362 p=0.1341 holm=1.0000
+  vs TREMA-naiveBdecompose    d=+0.0303 p=0.2110 holm=1.0000
+  vs TREMA-questions          d=+0.0362 p=0.1917 holm=1.0000
+  vs Olz-halfbin              d=+0.0370 p=0.1647 holm=1.0000
+  vs h2oloo-fewself           d=+0.0370 p=0.1322 holm=1.0000
+  vs NISTRetrieval-reason0    d=+0.0396 p=0.0864 holm=1.0000
+  vs NISTRetrieval-reason2    d=+0.0396 p=0.0816 holm=1.0000
+  vs Olz-somebin              d=+0.0437 p=0.1611 holm=1.0000
+  vs prophet-setting1         d=+0.0404 p=0.1370 holm=1.0000
+  vs NISTRetrieval-reason1    d=+0.0430 p=0.0635 holm=1.0000
+  vs Olz-exp                  d=+0.0396 p=0.0989 holm=1.0000
+  vs TREMA-direct             d=+0.0396 p=0.0698 holm=1.0000
+  vs willia-umbrela1          d=+0.0430 p=0.1690 holm=1.0000
+  vs RMITIR-GPT4o             d=+0.0497 p=0.0874 holm=1.0000
+  vs TREMA-CoT                d=+0.0471 p=0.0277 holm=0.7478
+  vs RMITIR-llama38b          d=+0.0564 p=0.0299 holm=0.7513
+  vs willia-umbrela2          d=+0.0538 p=0.2340 holm=1.0000
+  vs Olz-gpt4o                d=+0.0564 p=0.0263 holm=0.7363
+  vs willia-umbrela3          d=+0.0632 p=0.1442 holm=1.0000
+  vs TREMA-nuggets            d=+0.0800 p=0.0289 holm=0.7513
+  vs prophet-setting4         d=+0.0740 p=0.0060 holm=0.1920
+  vs h2oloo-zeroshot2         d=+0.0908 p=0.0069 holm=0.2139
+  vs TREMA-other              d=+0.0968 p=0.0236 holm=0.6843
+  vs TREMA-rubric0            d=+0.1036 p=0.0072 holm=0.2160
+
+top vs others separable at p<0.05 (uncorrected): 8/32, smallest such delta 0.0471; after Holm: 0/32

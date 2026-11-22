@@ -1,0 +1,15 @@
+31 runs, 25 topics, 33 judges; 20 draws per variant; seed=0
+
+== label ==
+  Kendall tau between published and re-drawn leaderboard: median 0.272, range -0.084 to 0.461
+  rank of the published top judge (prophet-setting2) after re-drawing: median 21, range 4 to 31
+  re-drawn tau over judges and draws: 0.560 to 0.960 (published 0.828 to 0.952); mean change per judge -0.039
+  Kendall tau between two re-drawn leaderboards (baseline): median 0.302, range -0.268 to 0.627
+  share of pairs matched only on label (no same-stratum donor in the topic): 0.000
+
+== label+stratum ==
+  Kendall tau between published and re-drawn leaderboard: median 0.370, range 0.168 to 0.553
+  rank of the published top judge (prophet-setting2) after re-drawing: median 13, range 1 to 29
+  re-drawn tau over judges and draws: 0.258 to 0.948 (published 0.828 to 0.952); mean change per judge -0.013
+  Kendall tau between two re-drawn leaderboards (baseline): median 0.425, range 0.169 to 0.661
+  share of pairs matched only on label (no same-stratum donor in the topic): 0.000

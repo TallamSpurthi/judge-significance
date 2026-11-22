@@ -1,0 +1,4 @@
+runs=31 topics=25: 15 real (id 2...), 10 generated (id 3...); all 82 DL 2023 topics: 51 real, 31 generated; B=10000 seed=0
+
+  stratified bootstrap z-test: adjacent separable 0/32 (smallest p among nonzero gaps 0.745); top vs others 1/32 uncorrected, 0 after Holm (smallest 0.469), 0 after BH (smallest 0.440)
+  stratified percentile intervals: judges with tau above their own 95% interval: 9/33 (top judge prophet-setting2: tau 0.9516, interval [0.767, 0.939])

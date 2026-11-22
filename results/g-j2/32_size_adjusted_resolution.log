@@ -1,0 +1,29 @@
+nominal powers vs results/g-j2/16_real_judge_power_bootstrap.tsv: largest difference 0.000000
+step 16 p-values: 522 pairs after 6 near-duplicate pairs, sizes [25, 50, 100, 200, 400], 200 replicates, test=bootstrap B=300 alpha=0.05 seed=0
+null set: 9 exactly tied pairs; MC draws 2000, seed 32
+
+n =  25  nominal    critical p 0.0500 | tied pairs reject median 0.030 (max 0.120) | pairs >= 0.10 apart: median power 0.23 | resolution none
+n =  25  pooled     critical p 0.0619 | tied pairs reject median 0.035 (max 0.140) | pairs >= 0.10 apart: median power 0.26 | resolution none
+n =  25  worst_pair critical p 0.0144 | tied pairs reject median 0.005 (max 0.050) | pairs >= 0.10 apart: median power 0.09 | resolution none
+n =  25  pooled, Monte Carlo (calibration + replicates): no gap resolved in 100% of draws
+
+n =  50  nominal    critical p 0.0500 | tied pairs reject median 0.040 (max 0.135) | pairs >= 0.10 apart: median power 0.44 | resolution none
+n =  50  pooled     critical p 0.0474 | tied pairs reject median 0.040 (max 0.130) | pairs >= 0.10 apart: median power 0.43 | resolution none
+n =  50  worst_pair critical p 0.0151 | tied pairs reject median 0.015 (max 0.050) | pairs >= 0.10 apart: median power 0.27 | resolution none
+n =  50  pooled, Monte Carlo (calibration + replicates): no gap resolved in 100% of draws
+
+n = 100  nominal    critical p 0.0500 | tied pairs reject median 0.060 (max 0.145) | pairs >= 0.10 apart: median power 0.62 | resolution none
+n = 100  pooled     critical p 0.0378 | tied pairs reject median 0.035 (max 0.135) | pairs >= 0.10 apart: median power 0.57 | resolution none
+n = 100  worst_pair critical p 0.0066 | tied pairs reject median 0.010 (max 0.050) | pairs >= 0.10 apart: median power 0.35 | resolution none
+n = 100  pooled, Monte Carlo (calibration + replicates): 5-95% 0.124-0.124; no gap resolved in 100% of draws
+
+n = 200  nominal    critical p 0.0500 | tied pairs reject median 0.085 (max 0.165) | pairs >= 0.10 apart: median power 0.81 | resolution 0.116 (11 pairs)
+n = 200  pooled     critical p 0.0249 | tied pairs reject median 0.050 (max 0.115) | pairs >= 0.10 apart: median power 0.73 | resolution none
+n = 200  worst_pair critical p 0.0087 | tied pairs reject median 0.020 (max 0.050) | pairs >= 0.10 apart: median power 0.59 | resolution none
+n = 200  pooled, Monte Carlo (calibration + replicates): 5-95% 0.116-0.124; no gap resolved in 93% of draws
+
+n = 400  nominal    critical p 0.0500 | tied pairs reject median 0.110 (max 0.200) | pairs >= 0.10 apart: median power 0.92 | resolution 0.087 (31 pairs)
+n = 400  pooled     critical p 0.0115 | tied pairs reject median 0.050 (max 0.110) | pairs >= 0.10 apart: median power 0.82 | resolution 0.116 (11 pairs)
+n = 400  worst_pair critical p 0.0047 | tied pairs reject median 0.030 (max 0.050) | pairs >= 0.10 apart: median power 0.77 | resolution none
+n = 400  pooled, Monte Carlo (calibration + replicates): 5-95% 0.100-0.124; no gap resolved in 14% of draws
+

@@ -1,0 +1,5 @@
+real judges, population = 25 topics; 29 adjacent pairs (near-duplicates skipped: 3); reps=1000 B=500 sizes=[10, 15, 20] seed=0
+  n = 10: Wald interval coverage of the 25-topic gap: min 0.782, median 0.980, max 0.996; pairs with coverage >= 0.90: 27/29
+  n = 15: Wald interval coverage of the 25-topic gap: min 0.938, median 0.994, max 1.000; pairs with coverage >= 0.90: 29/29
+  n = 20: Wald interval coverage of the 25-topic gap: min 0.933, median 0.999, max 1.000; pairs with coverage >= 0.90: 29/29
+  Monte Carlo SE of a 0.95 coverage at 1000 reps: 0.007

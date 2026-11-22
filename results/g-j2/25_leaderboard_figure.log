@@ -1,0 +1,4 @@
+top judge prophet-setting2 (tau 0.9516); 32 comparisons; B=10000
+  uncorrected 95% intervals excluding 0: 1/32; simultaneous (Bonferroni) intervals excluding 0: 0/32
+  largest gap 0.1240; median SE 0.0421
+wrote ../manuscript/figures/leaderboard.pdf

@@ -1,0 +1,14 @@
+# dl20: runs=59 topics=54; rank 0 = excluded
+rank	config	included	reason	covered	total	samples_per_pair	disagreeing_pairs	tau_b
+4	gpt-4o/binary	1		11381	11386	1:11381	0	0.915522
+1	gpt-4o/umbrela	1		11386	11386	1:11386	0	0.946230
+3	gpt-4o/exam-graded-max	1		11384	11386	1:11384	0	0.933372
+0	gpt-4o/exam-graded-mean	0	fractional labels	11384	11386	1:11384	0	
+0	gpt-4o/exam-binary	0	fractional labels	11381	11386	1:11381	0	
+9	llama3.2/binary	1		11386	11386	1:11386	0	0.858397
+5	llama3.2/umbrela	1		11386	11386	4:11386	9905	0.906487
+2	deepseek-v3/umbrela	1		11385	11386	1:11385	0	0.940386
+7	llama-3.3-70b/umbrela	1		11386	11386	1:11386	0	0.878434
+8	llama-3-8b/umbrela	1		11386	11386	1:11386	0	0.869082
+10	flan-t5-large/umbrela	1		11386	11386	1:11386	0	0.717124
+6	llama-3-8b/umbrela-basic	1		11386	11386	1:11386	0	0.900643

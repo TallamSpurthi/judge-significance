@@ -1,0 +1,11 @@
+real judges, population = 25 topics (with replacement); reps=200 perms=200 boot=100 seed=0
+  exact_tie            pairs=  9 n= 25: permutation median 0.115 (max 0.260); studentized_permutation median 0.095 (max 0.250); bootstrap_z median 0.035 (max 0.120)
+  exact_tie            pairs=  9 n=100: permutation median 0.185 (max 0.355); studentized_permutation median 0.120 (max 0.260); bootstrap_z median 0.060 (max 0.150)
+  near_duplicate_tie   pairs=  4 n= 25: permutation median 0.000 (max 0.000); studentized_permutation median 0.000 (max 0.000); bootstrap_z median 0.040 (max 0.060)
+  near_duplicate_tie   pairs=  4 n=100: permutation median 0.013 (max 0.060); studentized_permutation median 0.013 (max 0.050); bootstrap_z median 0.060 (max 0.100)
+  gap_ge_0.10          pairs= 20 n= 25: permutation median 0.528 (max 0.610); studentized_permutation median 0.490 (max 0.580); bootstrap_z median 0.212 (max 0.335)
+  gap_ge_0.10          pairs= 20 n=100: permutation median 0.875 (max 0.965); studentized_permutation median 0.765 (max 0.940); bootstrap_z median 0.637 (max 0.875)
+  Monte Carlo SE of a rate near 0.05 at 200 reps: 0.015
+  size-adjusted power (critical value set so that 5% of exactly tied samples are rejected):
+    n= 25: permutation 0.323 (critical p 0.0149); studentized_permutation 0.300 (critical p 0.0149); bootstrap_z 0.232 (critical p 0.0546)
+    n=100: permutation 0.688 (critical p 0.0050); studentized_permutation 0.610 (critical p 0.0100); bootstrap_z 0.593 (critical p 0.0325)

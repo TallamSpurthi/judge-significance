@@ -1,0 +1,54 @@
+runs tied on mean nDCG@10 (LLMJudge human, 25 test topics):
+  cip_run_1 == cip_run_2 (0.609266)
+
+== Stage A: Figure 1 targets (dev 0.9183, test 0.9473), nDCG@10 ==
+  k=4 judged_only=False x=full82 tau-b: 514 of 52360 subsets match both
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, agg-cocondenser, naverloo_bm25_splades_RR
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, agg-cocondenser, uot-yahoo_rankgpt35
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, agg-cocondenser, uot-yahoo_rankgpt4
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, naverloo_bm25_splades_RR, uot-yahoo_rankgpt35
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, naverloo_bm25_splades_RR, uot-yahoo_rankgpt4
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, uot-yahoo_rankgpt35, uot-yahoo_rankgpt4
+     exclude: WatS-Augmented-BM25, agg-cocondenser, naverloo_bm25_splades_RR, uot-yahoo_rankgpt35
+     exclude: WatS-Augmented-BM25, agg-cocondenser, naverloo_bm25_splades_RR, uot-yahoo_rankgpt4
+     exclude: WatS-Augmented-BM25, agg-cocondenser, uot-yahoo_rankgpt35, uot-yahoo_rankgpt4
+     exclude: WatS-Augmented-BM25, naverloo_bm25_splades_RR, uot-yahoo_rankgpt35, uot-yahoo_rankgpt4
+  k=4 judged_only=True x=full82 tau-b: 521 of 52360 subsets match both
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, agg-cocondenser, splade_pp_self_distil
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, cip_run_5, naverloo_fs_RR
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, cip_run_5, uogtr_b_grf_e_gb
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, cip_run_5, uogtr_dph
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, cip_run_7, naverloo_fs_RR
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, cip_run_7, uogtr_b_grf_e_gb
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, cip_run_7, uogtr_dph
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, naverloo_bm25_splades_RR, splade_pp_self_distil
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, splade_pp_self_distil, uot-yahoo_rankgpt35
+     exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, splade_pp_self_distil, uot-yahoo_rankgpt4
+
+== Stage B: Table 3 taus (33 judges), all subsets with k <= kmax ==
+  k=0 done
+  k=1 done
+  k=2 done
+  k=3 done
+  k=4 done
+
+  top 15 (exact = |reproduced(4dp) - published| < 5e-5; w01 = within +-0.01; n_tied = subsets with the same exact count in that cell)
+  exact=32 w01=33 k=4 ('ndcg_cut_10', False, 'llmjudge25') tau-b n_tied=2 exclude: WatS-LLM-Rerank, uogtr_dph_bo1, uot-yahoo_LLMs-blender, uot-yahoo_rankgpt35
+  exact=32 w01=33 k=4 ('ndcg_cut_10', False, 'full25') tau-b n_tied=2 exclude: WatS-LLM-Rerank, uogtr_dph_bo1, uot-yahoo_LLMs-blender, uot-yahoo_rankgpt35
+  exact= 9 w01=15 k=4 ('ndcg_cut_20', True, 'llmjudge25') tau-b n_tied=1 exclude: bm25_splades, slim-pp-0shot-uw, uogtr_b_grf_e, uogtr_be
+  exact= 9 w01=10 k=4 ('ndcg_cut_5', False, 'llmjudge25') tau-b n_tied=4 exclude: WatS-Augmented-BM25, cip_run_3, uogtr_qr_be, uogtr_se
+  exact= 9 w01=10 k=4 ('ndcg_cut_5', False, 'full25') tau-b n_tied=4 exclude: WatS-Augmented-BM25, cip_run_3, uogtr_qr_be, uogtr_se
+  exact= 7 w01=12 k=4 ('map', True, 'llmjudge25') tau-b n_tied=4 exclude: WatS-Augmented-BM25, cip_run_7, splade_pp_self_distil, uogtr_qr_be
+  exact= 5 w01=11 k=4 ('ndcg_cut_20', False, 'llmjudge25') tau-b n_tied=4 exclude: bm25_splades, cip_run_4, naverloo-frgpt4, naverloo_fs_RR
+  exact= 5 w01=11 k=4 ('ndcg_cut_20', False, 'full25') tau-b n_tied=4 exclude: bm25_splades, cip_run_4, naverloo-frgpt4, naverloo_fs_RR
+  exact= 5 w01= 9 k=4 ('ndcg_cut_5', True, 'llmjudge25') tau-b n_tied=37 exclude: WatS-LLM-Rerank, cip_run_6, uogtr_b_grf_e_gb, uogtr_be_gb
+  exact= 5 w01= 7 k=4 ('ndcg_cut_10', True, 'full25') tau-b n_tied=5 exclude: bm25_splades, cip_run_3, cip_run_5, uogtr_qr_be
+  exact= 5 w01= 7 k=4 ('ndcg_cut_5', True, 'full25') tau-b n_tied=1 exclude: bm25_splades, naverloo_bm25_RR, naverloo_fs_RR, uogtr_se
+  exact= 4 w01= 6 k=4 ('ndcg_cut_20', True, 'full25') tau-b n_tied=33 exclude: cip_run_5, naverloo_bm25_splades_RR, splade_pp_self_distil, uogtr_be
+  exact= 4 w01= 5 k=4 ('ndcg_cut_10', True, 'llmjudge25') tau-b n_tied=6 exclude: naverloo-frgpt4, naverloo-rgpt4, naverloo_fs, slim-pp-0shot-uw
+  exact= 3 w01=15 k=3 ('ndcg_cut_10', False, 'full82') tau-a n_tied=2 exclude: cip_run_4, slim-pp-0shot-uw, uogtr_se
+  exact= 2 w01=33 k=3 ('ndcg_cut_10', False, 'llmjudge25') tau-a n_tied=224 exclude: WatS-Augmented-BM25, WatS-LLM-Rerank, uogtr_dph_bo1
+
+== Stage A survivors scored on Table 3 ==
+  figkey=(4, False, 'full82', 'b') table cfg=('ndcg_cut_10', False, 'llmjudge25') tau-b exact=32 w01=33 exclude: WatS-LLM-Rerank, uot-yahoo_LLMs-blender, uot-yahoo_rankgpt35, uot-yahoo_rankgpt4
+  figkey=(4, False, 'full82', 'b') table cfg=('ndcg_cut_10', False, 'full25') tau-b exact=32 w01=33 exclude: WatS-LLM-Rerank, uot-yahoo_LLMs-blender, uot-yahoo_rankgpt35, uot-yahoo_rankgpt4

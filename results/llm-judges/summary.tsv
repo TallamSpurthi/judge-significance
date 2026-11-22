@@ -1,0 +1,73 @@
+name	value	meaning
+labelled_gemma4b-umbrela	22327	gemma4b-umbrela: NIST-judged pairs with a label (of 22327)
+labelled_haiku-basic	22327	haiku-basic: NIST-judged pairs with a label (of 22327)
+labelled_haiku-llmjudge	22292	haiku-llmjudge: NIST-judged pairs with a label (of 22327)
+labelled_haiku-umbrela	22325	haiku-umbrela: NIST-judged pairs with a label (of 22327)
+labelled_llama8b-umbrela	22324	llama8b-umbrela: NIST-judged pairs with a label (of 22327)
+labelled_qwen30b-umbrela	22327	qwen30b-umbrela: NIST-judged pairs with a label (of 22327)
+labelled_scout-umbrela	22327	scout-umbrela: NIST-judged pairs with a label (of 22327)
+labelled_sonnet-umbrela	22327	sonnet-umbrela: NIST-judged pairs with a label (of 22327)
+n_judges	8	new LLM judges
+n_pairs_judges	28	judge pairs
+n_pairs_nist	22327	NIST-judged pairs, 82 topics
+n_topics_heldout	57	held-out topics
+n_test_llmjudge	4423	LLMJudge human-judged pairs on the 25 test topics
+n_test_nist	6427	NIST-judged pairs on the 25 test topics
+n_test_omitted	2004	NIST-judged pairs on the 25 test topics absent from the LLMJudge qrels
+n_test_omitted_nonrel	2004	of those, NIST label 0
+n_test_nist_nonrel	4009	NIST label-0 pairs on the 25 test topics
+tau_min_test	0.9042	lowest tau, pool test
+tau_max_test	0.9526	highest tau, pool test
+top_test	qwen30b-umbrela	highest-tau judge, pool test
+bottom_test	llama8b-umbrela	lowest-tau judge, pool test
+tau_min_test-full	0.7371	lowest tau, pool test-full
+tau_max_test-full	0.9224	highest tau, pool test-full
+top_test-full	sonnet-umbrela	highest-tau judge, pool test-full
+bottom_test-full	gemma4b-umbrela	lowest-tau judge, pool test-full
+tau_min_heldout	0.8581	lowest tau, pool heldout
+tau_max_heldout	0.9140	highest tau, pool heldout
+top_heldout	llama8b-umbrela	highest-tau judge, pool heldout
+bottom_heldout	gemma4b-umbrela	lowest-tau judge, pool heldout
+tau_min_all	0.8366	lowest tau, pool all
+tau_max_all	0.9312	highest tau, pool all
+top_all	sonnet-umbrela	highest-tau judge, pool all
+bottom_all	gemma4b-umbrela	lowest-tau judge, pool all
+order_kendall_test_heldout	0.2857	Kendall tau_b between judge orders, test vs heldout
+order_flips_test_heldout	10	judge pairs ordered oppositely, test vs heldout
+order_kendall_test-full_heldout	0.3571	Kendall tau_b between judge orders, test-full vs heldout
+order_flips_test-full_heldout	9	judge pairs ordered oppositely, test-full vs heldout
+reps	500	replicates per power value
+max_gap_heldout	0.0559	largest gap in tau, held-out topics
+max_gap_test	0.0484	largest gap in tau, LLMJudge topics
+heldout_max_power_25	0.2060	largest power at n=25, held-out topics
+heldout_n_power80_25	0	pairs with power >= 0.8 at n=25, held-out topics
+pred_err_test_25	+0.0188	mean predicted (test) minus measured (held-out) power, n=25
+pred_abserr_test_25	0.0180	median |predicted (test) - measured|, n=25
+pred_corr_test_25	0.6877	correlation predicted (test) vs measured, n=25
+pred_err_test-full_25	+0.1449	mean predicted (test-full) minus measured (held-out) power, n=25
+pred_abserr_test-full_25	0.1170	median |predicted (test-full) - measured|, n=25
+pred_corr_test-full_25	0.8702	correlation predicted (test-full) vs measured, n=25
+heldout_max_power_50	0.2360	largest power at n=50, held-out topics
+heldout_n_power80_50	0	pairs with power >= 0.8 at n=50, held-out topics
+pred_err_test_50	+0.0311	mean predicted (test) minus measured (held-out) power, n=50
+pred_abserr_test_50	0.0240	median |predicted (test) - measured|, n=50
+pred_corr_test_50	0.5789	correlation predicted (test) vs measured, n=50
+pred_err_test-full_50	+0.2068	mean predicted (test-full) minus measured (held-out) power, n=50
+pred_abserr_test-full_50	0.1290	median |predicted (test-full) - measured|, n=50
+pred_corr_test-full_50	0.8433	correlation predicted (test-full) vs measured, n=50
+heldout_max_power_100	0.3300	largest power at n=100, held-out topics
+heldout_n_power80_100	0	pairs with power >= 0.8 at n=100, held-out topics
+pred_err_test_100	+0.0695	mean predicted (test) minus measured (held-out) power, n=100
+pred_abserr_test_100	0.0590	median |predicted (test) - measured|, n=100
+pred_corr_test_100	0.5710	correlation predicted (test) vs measured, n=100
+pred_err_test-full_100	+0.2980	mean predicted (test-full) minus measured (held-out) power, n=100
+pred_abserr_test-full_100	0.1970	median |predicted (test-full) - measured|, n=100
+pred_corr_test-full_100	0.8220	correlation predicted (test-full) vs measured, n=100
+heldout_max_power_200	0.7040	largest power at n=200, held-out topics
+heldout_n_power80_200	0	pairs with power >= 0.8 at n=200, held-out topics
+pred_err_test_200	+0.0924	mean predicted (test) minus measured (held-out) power, n=200
+pred_abserr_test_200	0.0900	median |predicted (test) - measured|, n=200
+pred_corr_test_200	0.4648	correlation predicted (test) vs measured, n=200
+pred_err_test-full_200	+0.3587	mean predicted (test-full) minus measured (held-out) power, n=200
+pred_abserr_test-full_200	0.3190	median |predicted (test-full) - measured|, n=200
+pred_corr_test-full_200	0.5919	correlation predicted (test-full) vs measured, n=200

@@ -1,0 +1,134 @@
+systems=35 judges=33 test topics=25
+
+== 1. Cohen's kappa check (label alignment) ==
+  NISTRetrieval-instruct0    pub=0.1877 raw=0.1877
+  NISTRetrieval-instruct1    pub=0.1874 raw=0.1874
+  NISTRetrieval-instruct2    pub=0.1880 raw=0.1880
+  NISTRetrieval-reason0      pub=0.1844 raw=0.1844
+  NISTRetrieval-reason1      pub=0.1845 raw=0.1845
+  NISTRetrieval-reason2      pub=0.1838 raw=0.1838
+  Olz-exp                    pub=0.2519 raw=0.2519
+  Olz-gpt4o                  pub=0.2625 raw=0.2625
+  Olz-halfbin                pub=0.2064 raw=0.2064
+  Olz-multiprompt            pub=0.2445 raw=0.2445
+  Olz-somebin                pub=0.2109 raw=0.2109
+  RMITIR-GPT4o               pub=0.2388 raw=0.2388
+  RMITIR-llama38b            pub=0.2006 raw=0.2006
+  RMITIR-llama70B            pub=0.2654 raw=0.2655   <-- raw=0.2655 clip03=0.2654 oob0=0.2659
+  TREMA-4prompts             pub=0.1829 raw=0.1829
+  TREMA-CoT                  pub=0.1961 raw=0.1961
+  TREMA-all                  pub=0.1471 raw=0.1471
+  TREMA-direct               pub=0.1742 raw=0.1742
+  TREMA-naiveBdecompose      pub=0.1741 raw=0.1741
+  TREMA-nuggets              pub=0.0604 raw=0.0604
+  TREMA-other                pub=0.1408 raw=0.1408
+  TREMA-questions            pub=0.1137 raw=0.1137
+  TREMA-rubric0              pub=0.0779 raw=0.0779
+  TREMA-sumdecompose         pub=0.2088 raw=0.2088
+  h2oloo-fewself             pub=0.2774 raw=0.2774
+  h2oloo-zeroshot1           pub=0.2817 raw=0.2817
+  h2oloo-zeroshot2           pub=0.2589 raw=0.2589
+  prophet-setting1           pub=0.1823 raw=0.1823
+  prophet-setting2           pub=0.1757 raw=0.1757
+  prophet-setting4           pub=0.1471 raw=0.1471
+  willia-umbrela1            pub=0.2863 raw=0.2863
+  willia-umbrela2            pub=0.2688 raw=0.2688
+  willia-umbrela3            pub=0.2741 raw=0.2741
+  kappa exact (4 dp, raw labels): 32/33
+
+== 2. Figure 1 check: sampled vs full human qrels, nDCG@10, all 35 runs ==
+  test judged_only=False x=full-same-topics  tau_a=0.9983 tau_b=1.0000 tau_c=0.9992   (published 0.9473)
+  test judged_only=False x=full-82-topics    tau_a=0.9546 tau_b=0.9554 tau_c=0.9554   (published 0.9473)
+  test judged_only=True  x=full-same-topics  tau_a=0.9513 tau_b=0.9529 tau_c=0.9521   (published 0.9473)
+  test judged_only=True  x=full-82-topics    tau_a=0.9345 tau_b=0.9352 tau_c=0.9353   (published 0.9473)
+  dev  judged_only=False x=full-same-topics  tau_a=1.0000 tau_b=1.0000 tau_c=1.0000   (published 0.9183)
+  dev  judged_only=False x=full-82-topics    tau_a=0.9294 tau_b=0.9294 tau_c=0.9294   (published 0.9183)
+  dev  judged_only=True  x=full-same-topics  tau_a=1.0000 tau_b=1.0000 tau_c=1.0000   (published 0.9183)
+  dev  judged_only=True  x=full-82-topics    tau_a=0.9294 tau_b=0.9294 tau_c=0.9294   (published 0.9183)
+
+judges affected by label handling: {'clip03': ['RMITIR-llama70B', 'h2oloo-zeroshot2'], 'oob0': ['RMITIR-llama70B', 'h2oloo-zeroshot2']} 
+
+== 3. Grid ==
+  done ndcg_cut_10
+  done ndcg_cut_5
+  done ndcg_cut_20
+  done ndcg_cut_100
+  done ndcg
+  done ndcg10_exp
+  done map_l1
+  done map_l2
+  done P_10_l1
+  done P_10_l2
+  done rr_l1
+  done rr_l2
+  done recall_100_l1
+  done recall_100_l2
+
+wrote 1512 configurations to results/g-j1/01_table3_grid.tsv
+
+top 20 of 1512 (n judges = 33; criterion: within +-0.01)
+         truth       metric       judged       labels       round4          tau     within01    within005        exact          mae       maxerr         bias
+    llmjudge25  ndcg_cut_20        False          raw         True            b           17            8            1       0.0202       0.0831       0.0123
+        full25  ndcg_cut_20        False          raw         True            b           17            8            1       0.0202       0.0831       0.0123
+    llmjudge25  ndcg_cut_20        False       clip03         True            b           17            7            1       0.0207       0.0966       0.0129
+        full25  ndcg_cut_20        False       clip03         True            b           17            7            1       0.0207       0.0966       0.0129
+    llmjudge25  ndcg_cut_20        False         oob0         True            b           17            7            1       0.0209       0.1033       0.0131
+        full25  ndcg_cut_20        False         oob0         True            b           17            7            1       0.0209       0.1033       0.0131
+    llmjudge25  ndcg_cut_20        False          raw        False            a           16            7            1       0.0195       0.0823       0.0109
+        full25  ndcg_cut_20        False          raw        False            a           16            7            1       0.0195       0.0823       0.0109
+    llmjudge25  ndcg_cut_20        False          raw        False            b           16            8            1       0.0197       0.0831       0.0117
+    llmjudge25  ndcg_cut_20        False          raw        False            c           16            8            1       0.0197       0.0831       0.0117
+        full25  ndcg_cut_20        False          raw        False            b           16            8            1       0.0197       0.0831       0.0117
+        full25  ndcg_cut_20        False          raw        False            c           16            8            1       0.0197       0.0831       0.0117
+    llmjudge25  ndcg_cut_20        False       clip03        False            a           16            6            1       0.0200       0.0958       0.0114
+        full25  ndcg_cut_20        False       clip03        False            a           16            6            1       0.0200       0.0958       0.0114
+    llmjudge25  ndcg_cut_20        False         oob0        False            a           16            6            1       0.0202       0.1025       0.0116
+        full25  ndcg_cut_20        False         oob0        False            a           16            6            1       0.0202       0.1025       0.0116
+    llmjudge25  ndcg_cut_20        False       clip03        False            b           16            7            1       0.0202       0.0966       0.0122
+    llmjudge25  ndcg_cut_20        False       clip03        False            c           16            7            1       0.0202       0.0966       0.0122
+        full25  ndcg_cut_20        False       clip03        False            b           16            7            1       0.0202       0.0966       0.0122
+        full25  ndcg_cut_20        False       clip03        False            c           16            7            1       0.0202       0.0966       0.0122
+
+best: llmjudge25 ndcg_cut_20 judged=False labels=raw round4=True tau-b
+  judge                      published reproduced     diff
+  prophet-setting2              0.9516     0.9420  -0.0096
+  TREMA-4prompts                0.9483     0.9327  -0.0156
+  NISTRetrieval-instruct0       0.9440     0.9377  -0.0063
+  NISTRetrieval-instruct1       0.9440     0.9343  -0.0097
+  NISTRetrieval-instruct2       0.9440     0.9343  -0.0097
+  RMITIR-llama70B               0.9353     0.9394  +0.0041
+  TREMA-sumdecompose            0.9300     0.9319  +0.0019
+  Olz-multiprompt               0.9267     0.9183  -0.0084
+  h2oloo-zeroshot1              0.9181     0.8956  -0.0225
+  TREMA-all                     0.9138     0.9117  -0.0021
+  TREMA-naiveBdecompose         0.9128     0.9083  -0.0045
+  TREMA-questions               0.9095     0.9226  +0.0131
+  Olz-halfbin                   0.9085     0.9184  +0.0099
+  h2oloo-fewself                0.9085     0.9453  +0.0368
+  NISTRetrieval-reason0         0.9052     0.9125  +0.0073
+  NISTRetrieval-reason2         0.9052     0.9125  +0.0073
+  Olz-somebin                   0.9042     0.9091  +0.0049
+  prophet-setting1              0.9042     0.9050  +0.0008
+  NISTRetrieval-reason1         0.9009     0.9149  +0.0140
+  Olz-exp                       0.9009     0.9495  +0.0486
+  TREMA-direct                  0.9009     0.9241  +0.0232
+  willia-umbrela1               0.9009     0.9091  +0.0082
+  RMITIR-GPT4o                  0.8966     0.9327  +0.0361
+  TREMA-CoT                     0.8956     0.9285  +0.0329
+  RMITIR-llama38b               0.8879     0.8855  -0.0024
+  willia-umbrela2               0.8870     0.9351  +0.0481
+  Olz-gpt4o                     0.8793     0.9319  +0.0526
+  willia-umbrela3               0.8707     0.9125  +0.0418
+  TREMA-nuggets                 0.8664     0.8273  -0.0391
+  prophet-setting4              0.8568     0.8680  +0.0112
+  h2oloo-zeroshot2              0.8353     0.9184  +0.0831
+  TREMA-other                   0.8276     0.8276  -0.0000
+  TREMA-rubric0                 0.8276     0.8788  +0.0512
+
+best within01 by dimension value:
+  truth: full25=17, full82=14, llmjudge25=17
+  metric: P_10_l1=6, P_10_l2=7, map_l1=14, map_l2=13, ndcg=11, ndcg10_exp=11, ndcg_cut_10=10, ndcg_cut_100=13, ndcg_cut_20=17, ndcg_cut_5=11, recall_100_l1=10, recall_100_l2=7, rr_l1=1, rr_l2=0
+  judged: False=17, True=14
+  labels: clip03=17, oob0=17, raw=17
+  round4: False=16, True=17
+  tau: a=16, b=17, c=16

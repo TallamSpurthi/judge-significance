@@ -1,0 +1,14 @@
+__pycache__/
+# API keys (steps 28-30 read them from the environment)
+.env
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+# Data are never stored in this repository (see README, Data)
+data/
+runs/
+# Generated paper files (tables, figures, numbers.tex; see README, Usage)
+/paper/
+*.run

@@ -1,0 +1,53 @@
+population: 31 runs, the 25 LLMJudge test topics (sampled with replacement); 33 real judges, 528 pairs; test=bootstrap boot=300 reps=200 perms=500 alpha=0.05 seed=0 (3320 s, 6 workers)
+
+  25-topic gap      pairs | median power at n =    25    50   100   200   400 | share of pairs with power >= 0.8
+  [0.000, 0.005)      63 |  0.03  0.04  0.06  0.07  0.09   |  0.00  0.00  0.00  0.00  0.00
+  [0.005, 0.010)      59 |  0.04  0.06  0.08  0.08  0.09   |  0.00  0.00  0.00  0.00  0.00
+  [0.010, 0.025)     100 |  0.04  0.06  0.09  0.10  0.14   |  0.00  0.00  0.00  0.00  0.00
+  [0.025, 0.050)     170 |  0.04  0.07  0.14  0.27  0.39   |  0.00  0.00  0.00  0.00  0.04
+  [0.050, 0.075)      76 |  0.06  0.17  0.32  0.47  0.66   |  0.00  0.00  0.00  0.04  0.26
+  [0.075, 0.100)      40 |  0.17  0.35  0.54  0.76  0.88   |  0.00  0.00  0.03  0.45  0.70
+  [0.100, 0.150)      20 |  0.23  0.44  0.62  0.81  0.92   |  0.00  0.00  0.30  0.55  0.85
+
+  smallest 25-topic gap g such that at least 80% of pairs with gap >= g reach 80% power:
+    n =   25: none
+    n =   50: none
+    n =  100: none
+    n =  200: 0.116
+    n =  400: 0.087
+
+  adjacent pairs in the published order: gap, power at each size, topics for 80% power
+    prophet-setting2 vs TREMA-4prompts                      0.0033  0.01  0.04  0.04  0.07  0.06  more than 400
+    TREMA-4prompts vs NISTRetrieval-instruct0               0.0043  0.02  0.01  0.01  0.03  0.04  more than 400
+    NISTRetrieval-instruct0 vs NISTRetrieval-instruct1      0.0000  0.04  0.04  0.07  0.10  0.12  more than 400
+    NISTRetrieval-instruct1 vs NISTRetrieval-instruct2      0.0000  0.04  0.04  0.02  0.01  0.00  more than 400
+    NISTRetrieval-instruct2 vs RMITIR-llama70B              0.0086  0.03  0.04  0.01  0.12  0.15  more than 400
+    RMITIR-llama70B vs TREMA-sumdecompose                   0.0053  0.04  0.07  0.08  0.07  0.10  more than 400
+    TREMA-sumdecompose vs Olz-multiprompt                   0.0033  0.04  0.07  0.06  0.07  0.14  more than 400
+    Olz-multiprompt vs h2oloo-zeroshot1                     0.0086  0.01  0.01  0.06  0.07  0.17  more than 400
+    h2oloo-zeroshot1 vs TREMA-all                           0.0043  0.10  0.10  0.15  0.07  0.04  more than 400
+    TREMA-all vs TREMA-naiveBdecompose                      0.0010  0.03  0.06  0.10  0.06  0.07  more than 400
+    TREMA-naiveBdecompose vs TREMA-questions                0.0033  0.02  0.01  0.04  0.06  0.05  more than 400
+    TREMA-questions vs Olz-halfbin                          0.0010  0.07  0.07  0.09  0.07  0.07  more than 400
+    Olz-halfbin vs h2oloo-fewself                           0.0000  0.03  0.03  0.06  0.07  0.09  more than 400
+    h2oloo-fewself vs NISTRetrieval-reason0                 0.0033  0.04  0.01  0.03  0.04  0.05  more than 400
+    NISTRetrieval-reason0 vs NISTRetrieval-reason2          0.0000  0.00  0.00  0.00  0.00  0.00  more than 400
+    NISTRetrieval-reason2 vs Olz-somebin                    0.0010  0.03  0.04  0.07  0.10  0.12  more than 400
+    Olz-somebin vs prophet-setting1                         0.0000  0.03  0.04  0.03  0.04  0.07  more than 400
+    prophet-setting1 vs NISTRetrieval-reason1               0.0033  0.04  0.06  0.06  0.09  0.10  more than 400
+    NISTRetrieval-reason1 vs Olz-exp                        0.0000  0.01  0.01  0.03  0.06  0.04  more than 400
+    Olz-exp vs TREMA-direct                                 0.0000  0.06  0.07  0.05  0.09  0.20  more than 400
+    TREMA-direct vs willia-umbrela1                         0.0000  0.09  0.07  0.07  0.07  0.06  more than 400
+    willia-umbrela1 vs RMITIR-GPT4o                         0.0043  0.05  0.07  0.09  0.08  0.12  more than 400
+    RMITIR-GPT4o vs TREMA-CoT                               0.0010  0.04  0.07  0.09  0.08  0.04  more than 400
+    TREMA-CoT vs RMITIR-llama38b                            0.0077  0.02  0.04  0.04  0.07  0.03  more than 400
+    RMITIR-llama38b vs willia-umbrela2                      0.0010  0.03  0.06  0.04  0.16  0.20  more than 400
+    willia-umbrela2 vs Olz-gpt4o                            0.0077  0.12  0.18  0.28  0.31  0.27  more than 400
+    Olz-gpt4o vs willia-umbrela3                            0.0086  0.12  0.23  0.27  0.36  0.35  more than 400
+    willia-umbrela3 vs TREMA-nuggets                        0.0043  0.21  0.14  0.17  0.14  0.19  more than 400
+    TREMA-nuggets vs prophet-setting4                       0.0095  0.11  0.09  0.04  0.07  0.10  more than 400
+    prophet-setting4 vs h2oloo-zeroshot2                    0.0215  0.07  0.08  0.07  0.07  0.06  more than 400
+    h2oloo-zeroshot2 vs TREMA-other                         0.0077  0.10  0.12  0.20  0.20  0.24  more than 400
+    TREMA-other vs TREMA-rubric0                            0.0000  0.03  0.07  0.07  0.09  0.11  more than 400
+
+  Monte Carlo SE of a power estimate near 0.5 at 200 reps: 0.035

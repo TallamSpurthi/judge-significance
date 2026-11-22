@@ -1,0 +1,43 @@
+runs=31 topics=25; all 465 system pairs under human qrels: |t| < 2.064 for 167 (36%), median |t| 2.68
+
+== Adjacent pairs (published order) ==
+  pair                                                    dtau contested  med gap  med |t|     sig
+  prophet-setting2 vs TREMA-4prompts                   +0.0033        15   0.0069     0.22       0
+  TREMA-4prompts vs NISTRetrieval-instruct0            +0.0043         5   0.0036     0.22       0
+  NISTRetrieval-instruct0 vs NISTRetrieval-instruct1   +0.0000         0        -        -       -
+  NISTRetrieval-instruct1 vs NISTRetrieval-instruct2   +0.0000         0        -        -       -
+  NISTRetrieval-instruct2 vs RMITIR-llama70B           +0.0087        10   0.0123     0.47       0
+  RMITIR-llama70B vs TREMA-sumdecompose                +0.0053        15   0.0113     0.39       0
+  TREMA-sumdecompose vs Olz-multiprompt                +0.0033        17   0.0113     0.40       0
+  Olz-multiprompt vs h2oloo-zeroshot1                  +0.0086        16   0.0149     0.59       0
+  h2oloo-zeroshot1 vs TREMA-all                        +0.0043        17   0.0123     0.39       0
+  TREMA-all vs TREMA-naiveBdecompose                   +0.0010        26   0.0111     0.35       0
+  TREMA-naiveBdecompose vs TREMA-questions             +0.0033        23   0.0036     0.21       0
+  TREMA-questions vs Olz-halfbin                       +0.0010        28   0.0111     0.36       0
+  Olz-halfbin vs h2oloo-fewself                        +0.0000        16   0.0066     0.24       0
+  h2oloo-fewself vs NISTRetrieval-reason0              +0.0033        17   0.0062     0.22       0
+  NISTRetrieval-reason0 vs NISTRetrieval-reason2       +0.0000         0        -        -       -
+  NISTRetrieval-reason2 vs Olz-somebin                 +0.0010        14   0.0123     0.59       0
+  Olz-somebin vs prophet-setting1                      +0.0000        18   0.0116     0.37       0
+  prophet-setting1 vs NISTRetrieval-reason1            +0.0033        17   0.0118     0.39       0
+  NISTRetrieval-reason1 vs Olz-exp                     +0.0000        22   0.0094     0.29       0
+  Olz-exp vs TREMA-direct                              +0.0000        22   0.0079     0.40       3
+  TREMA-direct vs willia-umbrela1                      +0.0000        26   0.0103     0.40       3
+  willia-umbrela1 vs RMITIR-GPT4o                      +0.0043        15   0.0113     0.40       0
+  RMITIR-GPT4o vs TREMA-CoT                            +0.0010        26   0.0164     0.46       0
+  TREMA-CoT vs RMITIR-llama38b                         +0.0077        20   0.0176     0.68       0
+  RMITIR-llama38b vs willia-umbrela2                   +0.0009        22   0.0120     0.36       0
+  willia-umbrela2 vs Olz-gpt4o                         +0.0077        14   0.0037     0.19       0
+  Olz-gpt4o vs willia-umbrela3                         +0.0086        16   0.0096     0.36       0
+  willia-umbrela3 vs TREMA-nuggets                     +0.0043        45   0.0155     0.41       3
+  TREMA-nuggets vs prophet-setting4                    +0.0096        54   0.0116     0.51       5
+  prophet-setting4 vs h2oloo-zeroshot2                 +0.0215        35   0.0145     0.43       2
+  h2oloo-zeroshot2 vs TREMA-other                      +0.0077        50   0.0170     0.70       3
+  TREMA-other vs TREMA-rubric0                         +0.0000        56   0.0223     0.94       3
+
+  adjacent pairs: 677 contested (judge pair, system pair) instances; 22 (3%) have |t| >= 2.064 under the human labels
+  distinct contested system pairs: 110 of 465; 103 (94%) not significantly ordered by the human labels
+  matched baseline: non-contested system pairs with the same human gap (5 nearest each) are not significantly ordered 90% of the time
+
+== Top judge vs each other judge ==
+  prophet-setting2 vs the other 32 judges: 707 contested (judge pair, system pair) instances; 11 (2%) have |t| >= 2.064

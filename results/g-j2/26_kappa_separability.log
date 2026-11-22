@@ -1,0 +1,6 @@
+33 judges, 25 topics, 4423 judged pairs; kappa matches published for 33/33; B=10000 seed=0
+  kappa range 0.060-0.286; median SE of a kappa difference 0.0252
+  adjacent pairs of the kappa leaderboard: separable at p < 0.05 0/32, after Holm 0/32
+  top kappa judge (willia-umbrela1) vs others: separable at p < 0.05 22/32, after Holm 4/32
+  adjacent pairs of the tau leaderboard, compared by kappa: separable at p < 0.05 13/32, after Holm 2/32
+  top tau judge (prophet-setting2) vs others, compared by kappa: separable at p < 0.05 10/32, after Holm 1/32

@@ -1,0 +1,7 @@
+# Exact versions used for the G-J1 results (Python 3.13, macOS, Nov 8, 2026)
+numpy==2.5.4
+scipy==1.18.1
+pytrec_eval-terrier==0.5.11
+matplotlib==3.11.2  # figures only
+pytest==9.2.0  # tests
+anthropic==2.7.0  # step 28 (Claude judges) only; OpenRouter calls use the standard library

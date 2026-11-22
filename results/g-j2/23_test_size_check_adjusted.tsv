@@ -1,0 +1,7 @@
+n	test	critical_p	median_power
+25	permutation	0.014925	0.3225
+25	studentized_permutation	0.014925	0.3000
+25	bootstrap_z	0.054624	0.2325
+100	permutation	0.004975	0.6875
+100	studentized_permutation	0.009950	0.6100
+100	bootstrap_z	0.032470	0.5925

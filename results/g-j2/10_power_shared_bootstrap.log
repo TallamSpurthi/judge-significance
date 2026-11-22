@@ -1,0 +1,67 @@
+population: 31 runs, 82 topics (sampled with replacement); shared_eps=0.3 test=bootstrap boot=300 reps=200 perms=1000 alpha=0.05 seed=0
+synthetic judges, tau on all 82 topics:
+  random-0.08  0.9484
+  random-0.04  0.9441
+  random-0.16  0.9398
+  random-0.32  0.9226
+  random-0.20  0.9183
+  random-0.12  0.9054
+  random-0.28  0.8796
+  random-0.36  0.8796
+  random-0.24  0.8667
+  random-0.40  0.8624
+  random-0.56  0.8624
+  random-0.52  0.8581
+  random-0.48  0.8452
+  random-0.44  0.8194
+  random-0.60  0.7419
+target 0.000: random-0.28 vs random-0.36, delta tau82 = +0.0000
+target 0.000: random-0.40 vs random-0.56, delta tau82 = +0.0000
+target 0.000: random-0.32 vs random-0.20, delta tau82 = +0.0043
+target 0.010: random-0.08 vs random-0.16, delta tau82 = +0.0086
+target 0.010: random-0.24 vs random-0.52, delta tau82 = +0.0086
+target 0.010: random-0.28 vs random-0.24, delta tau82 = +0.0129
+target 0.025: random-0.04 vs random-0.20, delta tau82 = +0.0258
+target 0.025: random-0.12 vs random-0.28, delta tau82 = +0.0258
+target 0.025: random-0.12 vs random-0.36, delta tau82 = +0.0258
+target 0.050: random-0.20 vs random-0.24, delta tau82 = +0.0516
+target 0.050: random-0.12 vs random-0.52, delta tau82 = +0.0473
+target 0.050: random-0.32 vs random-0.24, delta tau82 = +0.0559
+target 0.100: random-0.08 vs random-0.52, delta tau82 = +0.0903
+target 0.100: random-0.08 vs random-0.40, delta tau82 = +0.0860
+target 0.100: random-0.08 vs random-0.56, delta tau82 = +0.0860
+
+  target                        pair  delta82     10     25     50    100    200    400   (rejection rate)
+   0.000         random-0.28 vs 0.36  +0.0000  0.065  0.035  0.010  0.030  0.055  0.050
+   0.000         random-0.40 vs 0.56  +0.0000  0.230  0.105  0.090  0.100  0.110  0.080
+   0.000         random-0.32 vs 0.20  +0.0043  0.025  0.020  0.005  0.030  0.030  0.055
+   0.010         random-0.08 vs 0.16  +0.0086  0.050  0.010  0.035  0.020  0.060  0.055
+   0.010         random-0.24 vs 0.52  +0.0086  0.140  0.115  0.150  0.170  0.085  0.065
+   0.010         random-0.28 vs 0.24  +0.0129  0.050  0.045  0.025  0.040  0.030  0.035
+   0.025         random-0.04 vs 0.20  +0.0258  0.125  0.050  0.050  0.075  0.075  0.025
+   0.025         random-0.12 vs 0.28  +0.0258  0.080  0.035  0.035  0.070  0.095  0.200
+   0.025         random-0.12 vs 0.36  +0.0258  0.035  0.025  0.040  0.060  0.140  0.180
+   0.050         random-0.20 vs 0.24  +0.0516  0.055  0.050  0.045  0.085  0.210  0.445
+   0.050         random-0.12 vs 0.52  +0.0473  0.245  0.260  0.295  0.360  0.345  0.395
+   0.050         random-0.32 vs 0.24  +0.0559  0.065  0.060  0.070  0.085  0.270  0.470
+   0.100         random-0.08 vs 0.52  +0.0903  0.305  0.335  0.335  0.380  0.460  0.580
+   0.100         random-0.08 vs 0.40  +0.0860  0.155  0.180  0.235  0.265  0.380  0.480
+   0.100         random-0.08 vs 0.56  +0.0860  0.375  0.300  0.365  0.370  0.430  0.550
+
+  Monte Carlo SE of a power estimate near 0.5 at 200 reps: 0.035
+  topics needed for 80% power (linear interpolation between sizes):
+    target 0.000 random-0.28 vs random-0.36 (delta82 +0.0000): more than 400 topics
+    target 0.000 random-0.40 vs random-0.56 (delta82 +0.0000): more than 400 topics
+    target 0.000 random-0.32 vs random-0.20 (delta82 +0.0043): more than 400 topics
+    target 0.010 random-0.08 vs random-0.16 (delta82 +0.0086): more than 400 topics
+    target 0.010 random-0.24 vs random-0.52 (delta82 +0.0086): more than 400 topics
+    target 0.010 random-0.28 vs random-0.24 (delta82 +0.0129): more than 400 topics
+    target 0.025 random-0.04 vs random-0.20 (delta82 +0.0258): more than 400 topics
+    target 0.025 random-0.12 vs random-0.28 (delta82 +0.0258): more than 400 topics
+    target 0.025 random-0.12 vs random-0.36 (delta82 +0.0258): more than 400 topics
+    target 0.050 random-0.20 vs random-0.24 (delta82 +0.0516): more than 400 topics
+    target 0.050 random-0.12 vs random-0.52 (delta82 +0.0473): more than 400 topics
+    target 0.050 random-0.32 vs random-0.24 (delta82 +0.0559): more than 400 topics
+    target 0.100 random-0.08 vs random-0.52 (delta82 +0.0903): more than 400 topics
+    target 0.100 random-0.08 vs random-0.40 (delta82 +0.0860): more than 400 topics
+    target 0.100 random-0.08 vs random-0.56 (delta82 +0.0860): more than 400 topics
